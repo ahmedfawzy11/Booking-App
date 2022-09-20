@@ -1,9 +1,12 @@
+import 'package:booking_app/Core/DI/injection.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(
-    const MyApp(),
-  );
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  init();
+
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
