@@ -1,4 +1,4 @@
-class DataModel {
+class UserDataModel {
   final int id;
   final String name;
   final String email;
@@ -10,7 +10,7 @@ class DataModel {
   final dynamic googleId;
   final dynamic provider;
 
-  DataModel({
+  UserDataModel({
     required this.id,
     required this.name,
     required this.email,
@@ -23,8 +23,8 @@ class DataModel {
     required this.provider,
   });
 
-  factory DataModel.fromJson(Map<String, dynamic> json) {
-    return DataModel(
+  factory UserDataModel.fromJson(Map<String, dynamic> json) {
+    return UserDataModel(
       id: json["id"],
       name: json["name"],
       email: json["email"],

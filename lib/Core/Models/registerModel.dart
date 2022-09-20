@@ -1,9 +1,9 @@
-import 'package:booking_app/Core/Models/dataModel.dart';
+import 'package:booking_app/Core/Models/userDataModel.dart';
 import 'package:booking_app/Core/Models/statusModel.dart';
 
 class RegisterModel {
   final StatusModel status;
-  final DataModel data;
+  final UserDataModel data;
 
   RegisterModel({
     required this.status,
@@ -13,7 +13,7 @@ class RegisterModel {
   factory RegisterModel.fromJson(Map<String, dynamic> json) {
     return RegisterModel(
       status: StatusModel.fromJson(json['status']),
-      data: DataModel.fromJson(json['data']),
+      data: UserDataModel.fromJson(json['data']),
     );
   }
 }

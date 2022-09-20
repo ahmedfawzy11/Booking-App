@@ -1,9 +1,9 @@
-import 'package:booking_app/Core/Models/dataModel.dart';
+import 'package:booking_app/Core/Models/userDataModel.dart';
 import 'package:booking_app/Core/Models/statusModel.dart';
 
 class UpdateModel {
   final StatusModel status;
-  final DataModel data;
+  final UserDataModel data;
 
   UpdateModel({
     required this.status,
@@ -13,7 +13,7 @@ class UpdateModel {
   factory UpdateModel.fromJson(Map<String, dynamic> json) {
     return UpdateModel(
       status: StatusModel.fromJson(json['status']),
-      data: DataModel.fromJson(json['data']),
+      data: UserDataModel.fromJson(json['data']),
     );
   }
 }
