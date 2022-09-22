@@ -25,6 +25,8 @@ dependencies:
   badges: ^2.0.3
   carousel_slider: ^4.1.1
   image_stack: ^2.1.1
+  dartz: ^0.10.1
+  get_it: ^7.2.0
 
 dev_dependencies:
   flutter_test:
