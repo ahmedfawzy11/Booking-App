@@ -34,6 +34,9 @@ dependencies:
   shared_preferences:
   google_maps_flutter:
   flutter_rating_bar:
+  bloc:
+  rxdart:
+  equatable:
 
 dev_dependencies:
   flutter_test:

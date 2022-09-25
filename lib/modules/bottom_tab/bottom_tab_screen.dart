@@ -16,8 +16,7 @@ class BottomTabScreen extends StatefulWidget {
   _BottomTabScreenState createState() => _BottomTabScreenState();
 }
 
-class _BottomTabScreenState extends State<BottomTabScreen>
-    with TickerProviderStateMixin {
+class _BottomTabScreenState extends State<BottomTabScreen> with TickerProviderStateMixin {
   late AnimationController _animationController;
   bool _isFirstTime = true;
   Widget _indexView = Container();

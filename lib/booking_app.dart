@@ -49,9 +49,9 @@ class _BookingAppState extends State<BookingApp> {
             _setFirstTimeSomeData(context, _theme);
             return Directionality(
               textDirection:
-                  context.read<ThemeProvider>().languageType == LanguageType.ar
-                      ? TextDirection.rtl
-                      : TextDirection.ltr,
+              context.read<ThemeProvider>().languageType == LanguageType.ar
+                  ? TextDirection.rtl
+                  : TextDirection.ltr,
               child: Builder(
                 builder: (BuildContext context) {
                   return MediaQuery(
@@ -59,8 +59,8 @@ class _BookingAppState extends State<BookingApp> {
                       textScaleFactor: MediaQuery.of(context).size.width > 360
                           ? 1.0
                           : MediaQuery.of(context).size.width >= 340
-                              ? 0.9
-                              : 0.8,
+                          ? 0.9
+                          : 0.8,
                     ),
                     child: child ?? SizedBox(),
                   );

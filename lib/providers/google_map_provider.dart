@@ -13,21 +13,21 @@ class GoogleMapProvider extends ChangeNotifier {
   void updateGoogleMapController(GoogleMapController mapController) async {
     _mapController = mapController;
     await _setPositionOnScreen();
-    notifyListeners();
+    
   }
 
   void updateScreenVisibleArea(Size size) {
     _visibleScreenSize = size;
-    notifyListeners();
+    
   }
 
   void updateHotelList(List<HotelListData> _list) {
     _hotelList = _list;
-    notifyListeners();
+    
   }
 
   void updateUI() {
-    notifyListeners();
+    
   }
 
   Future _setPositionOnScreen() async {

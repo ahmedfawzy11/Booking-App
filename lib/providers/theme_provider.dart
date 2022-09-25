@@ -4,7 +4,7 @@ import 'package:booking_app/utils/themes.dart';
 import 'package:booking_app/utils/enum.dart';
 import 'package:booking_app/booking_app.dart';
 
-class ThemeProvider extends ChangeNotifier {
+class ThemeProvider  extends ChangeNotifier {
   ThemeProvider({required ThemeData state}) : super();
 
   bool _isLightMode = true;
@@ -50,7 +50,7 @@ class ThemeProvider extends ChangeNotifier {
     if (_isLightMode != _theLightTheme) {
       _isLightMode = _theLightTheme;
       _themeData = AppTheme.getThemeData;
-      notifyListeners();
+      
     }
   }
 
@@ -59,7 +59,7 @@ class ThemeProvider extends ChangeNotifier {
     if (fontType != _fontType) {
       _fontType = fontType;
       _themeData = AppTheme.getThemeData;
-      notifyListeners();
+      
     }
   }
 
@@ -67,14 +67,14 @@ class ThemeProvider extends ChangeNotifier {
     await SharedPreferencesKeys().setFontType(_fontType);
     _fontType = _fontType;
     _themeData = AppTheme.getThemeData;
-    notifyListeners();
+    
   }
 
   void updateColorType(ColorType _color) async {
     await SharedPreferencesKeys().setColorType(_color);
     _colorType = _color;
     _themeData = AppTheme.getThemeData;
-    notifyListeners();
+    
   }
 
   void checkAndSetColorType() async {
@@ -83,7 +83,7 @@ class ThemeProvider extends ChangeNotifier {
     if (_colorTypeData != colorType) {
       _colorType = _colorTypeData;
       _themeData = AppTheme.getThemeData;
-      notifyListeners();
+      
     }
   }
 
@@ -91,7 +91,7 @@ class ThemeProvider extends ChangeNotifier {
     await SharedPreferencesKeys().setLanguageType(_language);
     _languageType = _language;
     _themeData = AppTheme.getThemeData;
-    notifyListeners();
+    
   }
 
   void checkAndSetLanguage() async {
@@ -100,7 +100,7 @@ class ThemeProvider extends ChangeNotifier {
     if (_languageTypeData != languageType) {
       _languageType = _languageTypeData;
       _themeData = AppTheme.getThemeData;
-      notifyListeners();
+      
     }
   }
 }
