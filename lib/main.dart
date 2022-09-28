@@ -1,4 +1,6 @@
 import 'package:booking_app/Core/DI/injection.dart';
+import 'package:booking_app/features/inviteScreen/presentation/page/invitePage.dart';
+import 'package:booking_app/features/settingScreen/presentation/page/settingPage.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
@@ -21,9 +23,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Booking App',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        appBarTheme: const AppBarTheme(
+          color: Colors.transparent,
+          elevation: 0,
+          iconTheme: IconThemeData(
+            color: Colors.black,
+          ),
+        ),
       ),
       debugShowCheckedModeBanner: false,
+      home: const SettingScreen(),
     );
   }
 }
