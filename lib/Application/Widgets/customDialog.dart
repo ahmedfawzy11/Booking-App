@@ -1,15 +1,18 @@
+// ignore_for_file: library_private_types_in_public_api
+
+import 'package:booking_app/Application/Utils/textStyles.dart';
+import 'package:booking_app/Application/Utils/themes.dart';
 import 'package:flutter/material.dart';
-import 'package:booking_app/utils/text_styles.dart';
-import 'package:booking_app/utils/themes.dart';
 
 class CustomDialog extends StatefulWidget {
   const CustomDialog({
+    super.key,
     required this.title,
     this.description = '',
     this.topWidget,
     this.descriptionWidget,
     this.actionButtonList,
-    this.isVerical = false,
+    this.isVertical = false,
     this.onCloseClick,
   });
 
@@ -31,8 +34,14 @@ class _CustomDialogState extends State<CustomDialog>
   @override
   void initState() {
     animationController = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 480,),);
-    WidgetsBinding.instance!.addPostFrameCallback((_) => _startAnimation(),);
+      vsync: this,
+      duration: const Duration(
+        milliseconds: 480,
+      ),
+    );
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) => _startAnimation(),
+    );
     super.initState();
   }
 
@@ -47,24 +56,38 @@ class _CustomDialogState extends State<CustomDialog>
   }
 
   @override
-  Widget build(BuildContext context,) {
+  Widget build(
+    BuildContext context,
+  ) {
     return AnimatedBuilder(
       animation: animationController!,
-      builder: (BuildContext context, Widget? child,) {
+      builder: (
+        BuildContext context,
+        Widget? child,
+      ) {
         return ScaleTransition(
           scale: CurvedAnimation(
-              parent: animationController!,
-              curve: Interval(0.0, 1.0, curve: Curves.easeOutBack,),),
+            parent: animationController!,
+            curve: Interval(
+              0.0,
+              1.0,
+              curve: Curves.easeOutBack,
+            ),
+          ),
           child: Dialog(
             clipBehavior: Clip.none,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(0,),
+              borderRadius: BorderRadius.circular(
+                0,
+              ),
             ),
             elevation: 0.0,
             backgroundColor: Colors.transparent,
             child: SizedBox(
               width: 380,
-              child: dialogContent(context,),
+              child: dialogContent(
+                context,
+              ),
             ),
           ),
         );
@@ -72,11 +95,15 @@ class _CustomDialogState extends State<CustomDialog>
     );
   }
 
-  Widget dialogContent(BuildContext context,) {
+  Widget dialogContent(
+    BuildContext context,
+  ) {
     return Card(
       color: AppTheme.backgroundColor,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16.0,),
+        borderRadius: BorderRadius.circular(
+          16.0,
+        ),
       ),
       elevation: 24,
       child: Column(
@@ -88,28 +115,49 @@ class _CustomDialogState extends State<CustomDialog>
               borderRadius: (widget.topWidget == null)
                   ? null
                   : const BorderRadius.only(
-                      bottomLeft: Radius.elliptical(180, 32,),
-                      bottomRight: Radius.elliptical(180, 32,),
+                      bottomLeft: Radius.elliptical(
+                        180,
+                        32,
+                      ),
+                      bottomRight: Radius.elliptical(
+                        180,
+                        32,
+                      ),
                     ),
             ),
             child: Padding(
-              padding: const EdgeInsets.only(top: 8, left: 16, right: 16,),
+              padding: const EdgeInsets.only(
+                top: 8,
+                left: 16,
+                right: 16,
+              ),
               child: Column(
                 children: <Widget>[
                   if (widget.topWidget != null)
                     Padding(
-                      padding: const EdgeInsets.only(top: 8,),
+                      padding: const EdgeInsets.only(
+                        top: 8,
+                      ),
                       child: SizedBox(
-                          height: 60, child: Center(child: widget.topWidget,),),
+                        height: 60,
+                        child: Center(
+                          child: widget.topWidget,
+                        ),
+                      ),
                     ),
                   if (widget.title != '')
                     Padding(
-                      padding: const EdgeInsets.only(top: 8, bottom: 8,),
+                      padding: const EdgeInsets.only(
+                        top: 8,
+                        bottom: 8,
+                      ),
                       child: Center(
                         child: Text(
                           widget.title,
                           textAlign: TextAlign.center,
-                          style: TextStyles(context,).getTitleStyle(),
+                          style: TextStyles(
+                            context,
+                          ).getTitleStyle(),
                         ),
                       ),
                     )
@@ -124,10 +172,10 @@ class _CustomDialogState extends State<CustomDialog>
               top: 8,
             ),
             child: Column(
-              mainAxisSize: MainAxisSize.min, 
-              
+              mainAxisSize: MainAxisSize.min,
+
               // To Make the Card Compact
-              
+
               children: <Widget>[
                 Padding(
                   padding: const EdgeInsets.only(
@@ -135,10 +183,10 @@ class _CustomDialogState extends State<CustomDialog>
                     right: 16,
                   ),
                   child: Column(
-                    mainAxisSize: MainAxisSize.min, 
-                    
+                    mainAxisSize: MainAxisSize.min,
+
                     // To Make the Card Compact
-                    
+
                     children: <Widget>[
                       if (widget.descriptionWidget != null)
                         widget.descriptionWidget!
@@ -154,22 +202,30 @@ class _CustomDialogState extends State<CustomDialog>
                                     ),
                               )
                             : const SizedBox(),
-                      SizedBox(height: widget.description != '' ? 16.0 : 8,),
+                      SizedBox(
+                        height: widget.description != '' ? 16.0 : 8,
+                      ),
                     ],
                   ),
                 ),
                 Container(
                   height: 1,
-                  color: Theme.of(context,).dividerColor,
+                  color: Theme.of(
+                    context,
+                  ).dividerColor,
                 ),
                 if (widget.actionButtonList != null &&
                     widget.actionButtonList!.isNotEmpty)
-                  widget.actionButtonList!.length > 2 || widget.isVerical
+                  widget.actionButtonList!.length > 2 || widget.isVertical
                       ? Column(
-                          children: getActionButtonsList(context,),
+                          children: getActionButtonsList(
+                            context,
+                          ),
                         )
                       : Row(
-                          children: getActionButtonsList(context,),
+                          children: getActionButtonsList(
+                            context,
+                          ),
                         )
                 else
                   const SizedBox(),
@@ -181,37 +237,51 @@ class _CustomDialogState extends State<CustomDialog>
     );
   }
 
-  List<Widget> getActionButtonsList(BuildContext context,) {
+  List<Widget> getActionButtonsList(
+    BuildContext context,
+  ) {
     if (widget.actionButtonList != null) {
-      if (widget.actionButtonList!.length > 2 || widget.isVerical) {
+      if (widget.actionButtonList!.length > 2 || widget.isVertical) {
         final List<Widget> list = <Widget>[];
         for (int i = 0; i < widget.actionButtonList!.length; i++) {
           list.add(widget.actionButtonList![i]);
           if (i != widget.actionButtonList!.length) {
-            list.add(const Divider(
-              height: 1,
-            ),);
+            list.add(
+              const Divider(
+                height: 1,
+              ),
+            );
           }
         }
         return list;
       } else if (widget.actionButtonList!.length == 2) {
         final List<Widget> list = <Widget>[];
         list.add(
-          Expanded(child: widget.actionButtonList![0],),
+          Expanded(
+            child: widget.actionButtonList![0],
+          ),
         );
         list.add(
           Container(
             width: 0.6,
             height: 48,
-            color: Theme.of(context,).dividerColor,
+            color: Theme.of(
+              context,
+            ).dividerColor,
           ),
         );
-        list.add(Expanded(child: widget.actionButtonList![1],),);
+        list.add(
+          Expanded(
+            child: widget.actionButtonList![1],
+          ),
+        );
         return list;
       } else {
         final List<Widget> list = <Widget>[];
         list.add(
-          Expanded(child: widget.actionButtonList![0],),
+          Expanded(
+            child: widget.actionButtonList![0],
+          ),
         );
         return list;
       }
@@ -227,17 +297,26 @@ class CustomDialogActionButton extends StatelessWidget {
     this.onPressed,
     required this.buttonText,
     this.color,
-  }) : super(key: key,);
+  }) : super(
+          key: key,
+        );
 
   final VoidCallback? onPressed;
   final String buttonText;
   final Color? color;
 
   @override
-  Widget build(BuildContext context,) {
-    final btnColor = color ?? Theme.of(context,).primaryColor;
+  Widget build(
+    BuildContext context,
+  ) {
+    final btnColor = color ??
+        Theme.of(
+          context,
+        ).primaryColor;
     return InkWell(
-      splashColor: btnColor.withOpacity(0.1,),
+      splashColor: btnColor.withOpacity(
+        0.1,
+      ),
       hoverColor: Colors.transparent,
       focusColor: Colors.transparent,
       highlightColor: Colors.transparent,
@@ -247,7 +326,9 @@ class CustomDialogActionButton extends StatelessWidget {
         height: 48,
         child: Text(
           buttonText,
-          style: Theme.of(context,).textTheme.button!.copyWith(
+          style: Theme.of(
+            context,
+          ).textTheme.button!.copyWith(
                 color: btnColor,
               ),
         ),
@@ -257,25 +338,40 @@ class CustomDialogActionButton extends StatelessWidget {
 }
 
 class CustomTopIconView extends StatelessWidget {
-  const CustomTopIconView({Key? key, required this.topWidget, this.bgColor,})
-      : super(key: key,);
+  const CustomTopIconView({
+    Key? key,
+    required this.topWidget,
+    this.bgColor,
+  }) : super(
+          key: key,
+        );
 
   final Widget topWidget;
   final Color? bgColor;
 
   @override
-  Widget build(BuildContext context,) {
+  Widget build(
+    BuildContext context,
+  ) {
     return SizedBox(
       width: 60,
       height: 60,
       child: Card(
-        color: (bgColor == null) ? Theme.of(context,).primaryColor : bgColor,
+        color: (bgColor == null)
+            ? Theme.of(
+                context,
+              ).primaryColor
+            : bgColor,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(50.0,),
+          borderRadius: BorderRadius.circular(
+            50.0,
+          ),
         ),
         elevation: 6,
         child: ClipRRect(
-          borderRadius: BorderRadius.circular(50.0,),
+          borderRadius: BorderRadius.circular(
+            50.0,
+          ),
           child: topWidget,
         ),
       ),

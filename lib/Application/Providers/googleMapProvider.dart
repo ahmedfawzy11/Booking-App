@@ -1,4 +1,4 @@
-
+import 'package:booking_app/Data/Models/hotelListData.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
@@ -10,18 +10,24 @@ class GoogleMapProvider extends ChangeNotifier {
 
   List<HotelListData> get hotelList => _hotelList;
 
-  void updateGoogleMapController(GoogleMapController mapController,) async {
+  void updateGoogleMapController(
+    GoogleMapController mapController,
+  ) async {
     _mapController = mapController;
     await _setPositionOnScreen();
     notifyListeners();
   }
 
-  void updateScreenVisibleArea(Size size,) {
+  void updateScreenVisibleArea(
+    Size size,
+  ) {
     _visibleScreenSize = size;
     notifyListeners();
   }
 
-  void updateHotelList(List<HotelListData> list,) {
+  void updateHotelList(
+    List<HotelListData> list,
+  ) {
     _hotelList = list;
     notifyListeners();
   }
@@ -47,7 +53,9 @@ class GoogleMapProvider extends ChangeNotifier {
               var fdlg = _visibleRegion!.southwest.longitude -
                   item.location!.longitude;
               item.screenMapPin = Offset(
-                  (fdlg * sSize!.width) / sdlg, (fdl * sSize.height) / sdl,);
+                (fdlg * sSize!.width) / sdlg,
+                (fdl * sSize.height) / sdl,
+              );
             }
           }
         }

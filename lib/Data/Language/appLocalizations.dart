@@ -2,9 +2,10 @@
 
 import 'dart:convert';
 
-import 'package:booking_app/Providers/themeProvider.dart';
-import 'package:booking_app/common/common.dart' as common;
-import 'package:booking_app/utils/enum.dart';
+import 'package:booking_app/Application/Providers/themeProvider.dart';
+import 'package:booking_app/Application/Utils/enum.dart';
+import 'package:booking_app/Domain/common/common.dart' as common;
+import 'package:booking_app/bookingApp.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

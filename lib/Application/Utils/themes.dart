@@ -1,9 +1,10 @@
 // ignore_for_file: deprecated_member_use
 
-import 'package:booking_app/Providers/themeProvider.dart';
+import 'package:booking_app/Application/Providers/themeProvider.dart';
+import 'package:booking_app/Application/Utils/enum.dart';
 import 'package:booking_app/bookingApp.dart';
-import 'package:booking_app/utils/enum.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class AppTheme {

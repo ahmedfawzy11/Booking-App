@@ -1,7 +1,7 @@
 // ignore_for_file: file_names
 
-import 'package:booking_app/Core/Models/statusModel.dart';
-import 'package:booking_app/Core/Models/userDataModel.dart';
+import 'package:booking_app/Domain/Models/statusModel.dart';
+import 'package:booking_app/Domain/Models/userDataModel.dart';
 
 class RegisterModel {
   final StatusModel status;

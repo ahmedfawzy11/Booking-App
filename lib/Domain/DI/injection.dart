@@ -1,4 +1,5 @@
 import 'package:booking_app/Core/API/Network/repository.dart';
+import 'package:get_it/get_it.dart';
 
 final di = GetIt.instance;
 

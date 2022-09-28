@@ -12,20 +12,31 @@ class ListCellAnimationView extends StatelessWidget {
     required this.animationController,
     required this.child,
     this.yTranslation = 50,
-  }) : super(key: key,);
+  }) : super(
+          key: key,
+        );
 
   @override
-  Widget build(BuildContext context,) {
+  Widget build(
+    BuildContext context,
+  ) {
     return AnimatedBuilder(
       animation: animationController,
       child: child,
-      builder: (BuildContext context, Widget? child,) {
+      builder: (
+        BuildContext context,
+        Widget? child,
+      ) {
         return FadeTransition(
           opacity: animation,
-          child: new Transform(
-              transform: new Matrix4.translationValues(
-                  0.0, yTranslation * (1.0 - animation.value,), 0.0,),
-              child: child,),
+          child: Transform(
+            transform: Matrix4.translationValues(
+              0.0,
+              yTranslation * (1.0 - animation.value),
+              0.0,
+            ),
+            child: child,
+          ),
         );
       },
     );

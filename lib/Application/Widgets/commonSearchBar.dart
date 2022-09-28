@@ -1,6 +1,6 @@
+import 'package:booking_app/Application/Utils/textStyles.dart';
+import 'package:booking_app/Application/Utils/themes.dart';
 import 'package:flutter/material.dart';
-import 'package:booking_app/utils/text_styles.dart';
-import 'package:booking_app/utils/themes.dart';
 
 class CommonSearchBar extends StatelessWidget {
   final String? text;
@@ -9,19 +9,26 @@ class CommonSearchBar extends StatelessWidget {
   final double height;
   final IconData? iconData;
 
-  const CommonSearchBar(
-      {Key? key,
-      this.text,
-      this.enabled = false,
-      this.height = 48,
-      this.iconData,
-      this.ishsow = true,
-      this.textEditingController,})
-      : super(key: key,);
+  const CommonSearchBar({
+    Key? key,
+    this.text,
+    this.enabled = false,
+    this.height = 48,
+    this.iconData,
+    this.ishsow = true,
+    this.textEditingController,
+  }) : super(
+          key: key,
+        );
   @override
-  Widget build(BuildContext context,) {
+  Widget build(
+    BuildContext context,
+  ) {
     return Padding(
-      padding: const EdgeInsets.only(left: 16.0, right: 16.0,),
+      padding: const EdgeInsets.only(
+        left: 16.0,
+        right: 16.0,
+      ),
       child: Container(
         height: height,
         child: Center(
@@ -31,7 +38,9 @@ class CommonSearchBar extends StatelessWidget {
                   ? Icon(
                       iconData,
                       size: 18,
-                      color: Theme.of(context,).primaryColor,
+                      color: Theme.of(
+                        context,
+                      ).primaryColor,
                     )
                   : SizedBox(),
               ishsow == true
@@ -44,18 +53,24 @@ class CommonSearchBar extends StatelessWidget {
                   controller: textEditingController,
                   maxLines: 1,
                   enabled: enabled,
-                  onChanged: (String txt,) {},
-                  cursorColor: Theme.of(context,).primaryColor,
-                  decoration: new InputDecoration(
-                      contentPadding: EdgeInsets.all(0,),
-                      errorText: null,
-                      border: InputBorder.none,
-                      hintText: text,
-                      hintStyle: TextStyles(context,)
-                          .getDescriptionStyle()
-                          .copyWith(
-                              color: AppTheme.secondaryTextColor,
-                              fontSize: 18,),),
+                  onChanged: (
+                    String txt,
+                  ) {},
+                  cursorColor: Theme.of(
+                    context,
+                  ).primaryColor,
+                  decoration: InputDecoration(
+                    contentPadding: const EdgeInsets.all(0),
+                    errorText: null,
+                    border: InputBorder.none,
+                    hintText: text,
+                    hintStyle: TextStyles(
+                      context,
+                    ).getDescriptionStyle().copyWith(
+                          color: AppTheme.secondaryTextColor,
+                          fontSize: 18,
+                        ),
+                  ),
                 ),
               ),
             ],

@@ -1,6 +1,6 @@
 // ignore_for_file: file_names
 
-import 'package:booking_app/utils/themes.dart';
+import 'package:booking_app/Application/Utils/themes.dart';
 import 'package:flutter/material.dart';
 
 class TextStyles {

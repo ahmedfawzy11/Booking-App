@@ -1,6 +1,6 @@
+import 'package:booking_app/Application/Utils/textStyles.dart';
+import 'package:booking_app/Application/Utils/themes.dart';
 import 'package:flutter/material.dart';
-import 'package:booking_app/utils/text_styles.dart';
-import 'package:booking_app/utils/themes.dart';
 
 class CommonTextFieldView extends StatelessWidget {
   final String? titleText;
@@ -23,10 +23,14 @@ class CommonTextFieldView extends StatelessWidget {
     this.errorText,
     this.titleText = '',
     this.controller,
-  }) : super(key: key,);
+  }) : super(
+          key: key,
+        );
 
   @override
-  Widget build(BuildContext context,) {
+  Widget build(
+    BuildContext context,
+  ) {
     return Padding(
       padding: padding,
       child: Column(
@@ -34,22 +38,38 @@ class CommonTextFieldView extends StatelessWidget {
         children: [
           if (isAllowTopTitleView && titleText != '')
             Padding(
-              padding:
-                  const EdgeInsets.only(left: 16, right: 16, top: 4, bottom: 4,),
+              padding: const EdgeInsets.only(
+                left: 16,
+                right: 16,
+                top: 4,
+                bottom: 4,
+              ),
               child: Text(
                 titleText ?? "",
-                style: TextStyles(context,).getDescriptionStyle(),
+                style: TextStyles(
+                  context,
+                ).getDescriptionStyle(),
               ),
             ),
           Card(
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(24,),
+              borderRadius: BorderRadius.circular(
+                24,
+              ),
             ),
             shadowColor: Colors.black12.withOpacity(
-              Theme.of(context,).brightness == Brightness.dark ? 0.6 : 0.2,
+              Theme.of(
+                        context,
+                      ).brightness ==
+                      Brightness.dark
+                  ? 0.6
+                  : 0.2,
             ),
             child: Padding(
-              padding: const EdgeInsets.only(left: 16, right: 16,),
+              padding: const EdgeInsets.only(
+                left: 16,
+                right: 16,
+              ),
               child: SizedBox(
                 height: 48,
                 child: Center(
@@ -57,18 +77,27 @@ class CommonTextFieldView extends StatelessWidget {
                     controller: controller,
                     maxLines: 1,
                     onChanged: onChanged,
-                    style: TextStyles(context,).getRegularStyle(),
+                    style: TextStyles(
+                      context,
+                    ).getRegularStyle(),
                     obscureText: isObscureText,
-                    cursorColor: Theme.of(context,).primaryColor,
+                    cursorColor: Theme.of(
+                      context,
+                    ).primaryColor,
                     onEditingComplete: () {
-                      FocusScope.of(context,).nextFocus();
+                      FocusScope.of(
+                        context,
+                      ).nextFocus();
                     },
-                    decoration: new InputDecoration(
+                    decoration: InputDecoration(
                       errorText: null,
                       border: InputBorder.none,
                       hintText: hintText,
-                      hintStyle:
-                          TextStyle(color: Theme.of(context,).disabledColor,),
+                      hintStyle: TextStyle(
+                        color: Theme.of(
+                          context,
+                        ).disabledColor,
+                      ),
                     ),
                     keyboardType: keyboardType,
                   ),
@@ -78,8 +107,12 @@ class CommonTextFieldView extends StatelessWidget {
           ),
           if (errorText != null && errorText != '')
             Padding(
-              padding:
-                  const EdgeInsets.only(left: 16, right: 16, top: 4, bottom: 4,),
+              padding: const EdgeInsets.only(
+                left: 16,
+                right: 16,
+                top: 4,
+                bottom: 4,
+              ),
               child: Text(
                 errorText ?? "",
                 style: TextStyles(context).getDescriptionStyle().copyWith(

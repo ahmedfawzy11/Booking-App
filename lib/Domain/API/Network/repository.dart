@@ -4,6 +4,12 @@ import 'package:booking_app/Core/Models/loginModel.dart';
 import 'package:booking_app/Core/Models/profileModel.dart';
 import 'package:booking_app/Core/Models/registerModel.dart';
 import 'package:booking_app/Core/Models/updateModel.dart';
+import 'package:booking_app/Domain/Models/changePasswordModel.dart';
+import 'package:booking_app/Domain/Models/loginModel.dart';
+import 'package:booking_app/Domain/Models/profileModel.dart';
+import 'package:booking_app/Domain/Models/registerModel.dart';
+import 'package:booking_app/Domain/Models/updateModel.dart';
+import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 
 abstract class Repository {

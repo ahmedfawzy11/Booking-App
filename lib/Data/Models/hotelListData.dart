@@ -1,8 +1,9 @@
 // ignore_for_file: file_names
 
-import 'package:booking_app/Models/roomData.dart';
-import 'package:booking_app/utils/localfiles.dart';
+import 'package:booking_app/Application/Utils/localfiles.dart';
+import 'package:booking_app/Data/Models/roomData.dart';
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class HotelListData {
   String imagePath;

@@ -1,8 +1,8 @@
 // ignore_for_file: file_names
 
+import 'package:booking_app/Application/Utils/enum.dart';
+import 'package:booking_app/Application/Utils/themes.dart';
 import 'package:booking_app/bookingApp.dart';
-import 'package:booking_app/utils/enum.dart';
-import 'package:booking_app/utils/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

@@ -1,6 +1,6 @@
+import 'package:booking_app/Application/Utils/textStyles.dart';
+import 'package:booking_app/Application/Widgets/tapEffect.dart';
 import 'package:flutter/material.dart';
-import 'package:booking_app/widgets/tap_effect.dart';
-import 'package:booking_app/utils/text_styles.dart';
 
 class CommonButton extends StatelessWidget {
   final VoidCallback? onTap;
@@ -20,10 +20,14 @@ class CommonButton extends StatelessWidget {
     this.padding,
     this.isClickable = true,
     this.radius = 24,
-  }) : super(key: key,);
+  }) : super(
+          key: key,
+        );
 
   @override
-  Widget build(BuildContext context,) {
+  Widget build(
+    BuildContext context,
+  ) {
     return Padding(
       padding: padding ?? EdgeInsets.only(),
       child: TapEffect(
@@ -33,17 +37,29 @@ class CommonButton extends StatelessWidget {
           height: 48,
           child: Card(
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(radius,),
+              borderRadius: BorderRadius.circular(
+                radius,
+              ),
             ),
-            color: backgroundColor ?? Theme.of(context,).primaryColor,
+            color: backgroundColor ??
+                Theme.of(
+                  context,
+                ).primaryColor,
             shadowColor: Colors.black12.withOpacity(
-              Theme.of(context,).brightness == Brightness.dark ? 0.6 : 0.2,
+              Theme.of(
+                        context,
+                      ).brightness ==
+                      Brightness.dark
+                  ? 0.6
+                  : 0.2,
             ),
             child: Center(
               child: buttonTextWidget ??
                   Text(
                     buttonText ?? "",
-                    style: TextStyles(context,).getRegularStyle().copyWith(
+                    style: TextStyles(
+                      context,
+                    ).getRegularStyle().copyWith(
                           color: textColor,
                           fontSize: 16,
                         ),
