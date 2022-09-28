@@ -1,14 +1,13 @@
-import 'package:booking_app/modules/profile/page/profile_page.dart';
+import 'package:booking_app/Application/Providers/themeProvider.dart';
+import 'package:booking_app/Application/Utils/themes.dart';
+import 'package:booking_app/Application/Widgets/commonCard.dart';
+import 'package:booking_app/Data/Language/appLocalizations.dart';
+import 'package:booking_app/Presentation/Modules/bottomTab/components/tabButtonUI.dart';
+import 'package:booking_app/Presentation/Modules/explore/homeExploreScreen.dart';
+import 'package:booking_app/Presentation/Modules/myTrips/myTripsScreen.dart';
+import 'package:booking_app/Presentation/Modules/profile/Pages/profilePage.dart';
 import 'package:flutter/material.dart';
-import 'package:booking_app/modules/explore/home_explore_screen.dart';
-import 'package:booking_app/modules/myTrips/my_trips_screen.dart';
-import 'package:booking_app/modules/profile/profile_screen.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:booking_app/utils/themes.dart';
-import 'package:booking_app/language/appLocalizations.dart';
-import 'package:booking_app/providers/theme_provider.dart';
-import 'package:booking_app/modules/bottom_tab/components/tab_button_UI.dart';
-import 'package:booking_app/widgets/common_card.dart';
 import 'package:provider/provider.dart';
 
 class BottomTabScreen extends StatefulWidget {
@@ -25,15 +24,25 @@ class _BottomTabScreenState extends State<BottomTabScreen>
 
   @override
   void initState() {
-    _animationController =
-        AnimationController(duration: Duration(milliseconds: 400,), vsync: this,);
+    _animationController = AnimationController(
+      duration: Duration(
+        milliseconds: 400,
+      ),
+      vsync: this,
+    );
     _indexView = Container();
-    WidgetsBinding.instance!.addPostFrameCallback((_) => _startLoadScreen(),);
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) => _startLoadScreen(),
+    );
     super.initState();
   }
 
   Future _startLoadScreen() async {
-    await Future.delayed(const Duration(milliseconds: 480,),);
+    await Future.delayed(
+      const Duration(
+        milliseconds: 480,
+      ),
+    );
     setState(() {
       _isFirstTime = false;
       _indexView = HomeExploreScreen(
@@ -50,13 +59,21 @@ class _BottomTabScreenState extends State<BottomTabScreen>
   }
 
   @override
-  Widget build(BuildContext context,) {
+  Widget build(
+    BuildContext context,
+  ) {
     return Consumer<ThemeProvider>(
       builder: (_, provider, child) => Container(
         child: Scaffold(
           bottomNavigationBar: Container(
-              height: 60 + MediaQuery.of(context,).padding.bottom,
-              child: getBottomBarUI(bottomBarType,),),
+            height: 60 +
+                MediaQuery.of(
+                  context,
+                ).padding.bottom,
+            child: getBottomBarUI(
+              bottomBarType,
+            ),
+          ),
           body: _isFirstTime
               ? Center(
                   child: CircularProgressIndicator(
@@ -69,34 +86,44 @@ class _BottomTabScreenState extends State<BottomTabScreen>
     );
   }
 
-  void tabClick(BottomBarType tabType,) {
+  void tabClick(
+    BottomBarType tabType,
+  ) {
     if (tabType != bottomBarType) {
       bottomBarType = tabType;
-      _animationController.reverse().then((f,) {
-        if (tabType == BottomBarType.Explore) {
-          setState(() {
-            _indexView = HomeExploreScreen(
-              animationController: _animationController,
+      _animationController.reverse().then(
+        (
+          f,
+        ) {
+          if (tabType == BottomBarType.Explore) {
+            setState(() {
+              _indexView = HomeExploreScreen(
+                animationController: _animationController,
+              );
+            });
+          } else if (tabType == BottomBarType.Trips) {
+            setState(() {
+              _indexView = MyTripsScreen(
+                animationController: _animationController,
+              );
+            });
+          } else if (tabType == BottomBarType.Profile) {
+            setState(
+              () {
+                _indexView = ProfilePage(
+                  animationController: _animationController,
+                );
+              },
             );
-          });
-        } else if (tabType == BottomBarType.Trips) {
-          setState(() {
-            _indexView = MyTripsScreen(
-              animationController: _animationController,
-            );
-          });
-        } else if (tabType == BottomBarType.Profile) {
-          setState(() {
-            _indexView = ProfilePage(
-              animationController: _animationController,
-            );
-          },);
-        }
-      },);
+          }
+        },
+      );
     }
   }
 
-  Widget getBottomBarUI(BottomBarType tabType,) {
+  Widget getBottomBarUI(
+    BottomBarType tabType,
+  ) {
     return CommonCard(
       color: AppTheme.backgroundColor,
       radius: 0,
@@ -107,31 +134,51 @@ class _BottomTabScreenState extends State<BottomTabScreen>
               TabButtonUI(
                 icon: Icons.search,
                 isSelected: tabType == BottomBarType.Explore,
-                text: AppLocalizations(context,).of("explore",),
+                text: AppLocalizations(
+                  context,
+                ).of(
+                  "explore",
+                ),
                 onTap: () {
-                  tabClick(BottomBarType.Explore,);
+                  tabClick(
+                    BottomBarType.Explore,
+                  );
                 },
               ),
               TabButtonUI(
                 icon: FontAwesomeIcons.heart,
                 isSelected: tabType == BottomBarType.Trips,
-                text: AppLocalizations(context,).of("trips",),
+                text: AppLocalizations(
+                  context,
+                ).of(
+                  "trips",
+                ),
                 onTap: () {
-                  tabClick(BottomBarType.Trips,);
+                  tabClick(
+                    BottomBarType.Trips,
+                  );
                 },
               ),
               TabButtonUI(
                 icon: FontAwesomeIcons.user,
                 isSelected: tabType == BottomBarType.Profile,
-                text: AppLocalizations(context,).of("profile",),
+                text: AppLocalizations(
+                  context,
+                ).of(
+                  "profile",
+                ),
                 onTap: () {
-                  tabClick(BottomBarType.Profile,);
+                  tabClick(
+                    BottomBarType.Profile,
+                  );
                 },
               ),
             ],
           ),
           SizedBox(
-            height: MediaQuery.of(context,).padding.bottom,
+            height: MediaQuery.of(
+              context,
+            ).padding.bottom,
           ),
         ],
       ),
@@ -139,4 +186,8 @@ class _BottomTabScreenState extends State<BottomTabScreen>
   }
 }
 
-enum BottomBarType { Explore, Trips, Profile, }
+enum BottomBarType {
+  Explore,
+  Trips,
+  Profile,
+}

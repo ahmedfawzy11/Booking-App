@@ -1,9 +1,4 @@
-import 'package:booking_app/Core/API/Network/endPoints.dart';
-import 'package:booking_app/Core/Models/changePasswordModel.dart';
-import 'package:booking_app/Core/Models/loginModel.dart';
-import 'package:booking_app/Core/Models/profileModel.dart';
-import 'package:booking_app/Core/Models/registerModel.dart';
-import 'package:booking_app/Core/Models/updateModel.dart';
+import 'package:booking_app/Domain/API/Network/endPoints.dart';
 import 'package:booking_app/Domain/Models/changePasswordModel.dart';
 import 'package:booking_app/Domain/Models/loginModel.dart';
 import 'package:booking_app/Domain/Models/profileModel.dart';

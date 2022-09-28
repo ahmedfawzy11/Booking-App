@@ -1,12 +1,14 @@
+import 'package:booking_app/Application/Utils/validator.dart';
+import 'package:booking_app/Application/Widgets/commonAppbarView.dart';
+import 'package:booking_app/Application/Widgets/commonButton.dart';
+import 'package:booking_app/Application/Widgets/commonTextFieldView.dart';
+import 'package:booking_app/Application/Widgets/removeForce.dart';
+import 'package:booking_app/Data/Language/appLocalizations.dart';
 import 'package:flutter/material.dart';
-import 'package:booking_app/language/appLocalizations.dart';
-import 'package:booking_app/utils/validator.dart';
-import 'package:booking_app/widgets/common_appbar_view.dart';
-import 'package:booking_app/widgets/common_button.dart';
-import 'package:booking_app/widgets/common_text_field_view.dart';
-import 'package:booking_app/widgets/remove_focuse.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
+  const ForgotPasswordScreen({super.key});
+
   @override
   _ForgotPasswordScreenState createState() => _ForgotPasswordScreenState();
 }
@@ -16,12 +18,18 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   TextEditingController _emailController = TextEditingController();
 
   @override
-  Widget build(BuildContext context,) {
+  Widget build(
+    BuildContext context,
+  ) {
     return Container(
       child: Scaffold(
-        body: RemoveFocuse(
+        body: RemoveForce(
           onClick: () {
-            FocusScope.of(context,).requestFocus(FocusNode(),);
+            FocusScope.of(
+              context,
+            ).requestFocus(
+              FocusNode(),
+            );
           },
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -34,18 +42,27 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                     children: <Widget>[
                       Padding(
                         padding: const EdgeInsets.only(
-                            top: 16.0, bottom: 16.0, left: 24, right: 24,),
+                          top: 16.0,
+                          bottom: 16.0,
+                          left: 24,
+                          right: 24,
+                        ),
                         child: Row(
                           children: <Widget>[
                             Expanded(
                               child: Text(
-                                AppLocalizations(context,)
-                                    .of("resend_email_link",),
+                                AppLocalizations(
+                                  context,
+                                ).of(
+                                  "resend_email_link",
+                                ),
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.w500,
-                                  color: Theme.of(context,).disabledColor,
+                                  color: Theme.of(
+                                    context,
+                                  ).disabledColor,
                                 ),
                               ),
                             ),
@@ -54,21 +71,43 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                       ),
                       CommonTextFieldView(
                         controller: _emailController,
-                        titleText: AppLocalizations(context,).of("your_mail",),
+                        titleText: AppLocalizations(
+                          context,
+                        ).of(
+                          "your_mail",
+                        ),
                         errorText: _errorEmail,
-                        padding:
-                            EdgeInsets.only(left: 24, right: 24, bottom: 24,),
-                        hintText:
-                            AppLocalizations(context,).of("enter_your_email",),
+                        padding: const EdgeInsets.only(
+                          left: 24,
+                          right: 24,
+                          bottom: 24,
+                        ),
+                        hintText: AppLocalizations(
+                          context,
+                        ).of(
+                          "enter_your_email",
+                        ),
                         keyboardType: TextInputType.emailAddress,
-                        onChanged: (String txt,) {},
+                        onChanged: (
+                          String txt,
+                        ) {},
                       ),
                       CommonButton(
-                        padding:
-                            EdgeInsets.only(left: 24, right: 24, bottom: 16,),
-                        buttonText: AppLocalizations(context,).of("send",),
+                        padding: EdgeInsets.only(
+                          left: 24,
+                          right: 24,
+                          bottom: 16,
+                        ),
+                        buttonText: AppLocalizations(
+                          context,
+                        ).of(
+                          "send",
+                        ),
                         onTap: () {
-                          if (_allValidation()) Navigator.pop(context,);
+                          if (_allValidation())
+                            Navigator.pop(
+                              context,
+                            );
                         },
                       ),
                     ],
@@ -83,11 +122,17 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   }
 
   Widget appBar() {
-    return CommonAppbarView(
+    return CommonAppBarView(
       iconData: Icons.arrow_back,
-      titleText: AppLocalizations(context,).of("forgot_your_Password",),
+      titleText: AppLocalizations(
+        context,
+      ).of(
+        "forgot_your_Password",
+      ),
       onBackClick: () {
-        Navigator.pop(context,);
+        Navigator.pop(
+          context,
+        );
       },
     );
   }
@@ -95,10 +140,20 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   bool _allValidation() {
     bool isValid = true;
     if (_emailController.text.trim().isEmpty) {
-      _errorEmail = AppLocalizations(context,).of('email_cannot_empty',);
+      _errorEmail = AppLocalizations(
+        context,
+      ).of(
+        'email_cannot_empty',
+      );
       isValid = false;
-    } else if (!Validator.validateEmail(_emailController.text.trim(),),) {
-      _errorEmail = AppLocalizations(context,).of('enter_valid_email',);
+    } else if (!Validator.validateEmail(
+      _emailController.text.trim(),
+    )) {
+      _errorEmail = AppLocalizations(
+        context,
+      ).of(
+        'enter_valid_email',
+      );
       isValid = false;
     } else {
       _errorEmail = '';

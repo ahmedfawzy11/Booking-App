@@ -1,14 +1,14 @@
+import 'package:booking_app/Application/Providers/themeProvider.dart';
+import 'package:booking_app/Application/Utils/enum.dart';
+import 'package:booking_app/Application/Utils/textStyles.dart';
+import 'package:booking_app/Application/Utils/themes.dart';
+import 'package:booking_app/Application/Widgets/commonButton.dart';
+import 'package:booking_app/Application/Widgets/commonCard.dart';
+import 'package:booking_app/Application/Widgets/removeForce.dart';
+import 'package:booking_app/Data/Language/appLocalizations.dart';
+import 'package:booking_app/Presentation/Modules/hotelBooking/Components/customCalendar.dart';
+import 'package:booking_app/bookingApp.dart';
 import 'package:flutter/material.dart';
-import 'package:booking_app/language/appLocalizations.dart';
-import 'package:booking_app/modules/hotel_booking/components/custom_calendar.dart';
-import 'package:booking_app/booking_app.dart';
-import 'package:booking_app/providers/theme_provider.dart';
-import 'package:booking_app/utils/enum.dart';
-import 'package:booking_app/utils/text_styles.dart';
-import 'package:booking_app/utils/themes.dart';
-import 'package:booking_app/widgets/common_button.dart';
-import 'package:booking_app/widgets/common_card.dart';
-import 'package:booking_app/widgets/remove_focuse.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
@@ -18,7 +18,10 @@ class CalendarPopupView extends StatefulWidget {
   final bool barrierDismissible;
   final DateTime initialStartDate;
   final DateTime initialEndDate;
-  final Function(DateTime, DateTime,) onApplyClick;
+  final Function(
+    DateTime,
+    DateTime,
+  ) onApplyClick;
   final Function onCancelClick;
 
   const CalendarPopupView({
@@ -30,7 +33,9 @@ class CalendarPopupView extends StatefulWidget {
     this.barrierDismissible = true,
     required this.minimumDate,
     required this.maximumDate,
-  }) : super(key: key,);
+  }) : super(
+          key: key,
+        );
   @override
   _CalendarPopupViewState createState() => _CalendarPopupViewState();
 }
@@ -46,8 +51,12 @@ class _CalendarPopupViewState extends State<CalendarPopupView>
 
   @override
   void initState() {
-    animationController =
-        AnimationController(duration: Duration(milliseconds: 400,), vsync: this,);
+    animationController = AnimationController(
+      duration: Duration(
+        milliseconds: 400,
+      ),
+      vsync: this,
+    );
     startDate = widget.initialStartDate;
     endDate = widget.initialEndDate;
     animationController.forward();
@@ -61,22 +70,34 @@ class _CalendarPopupViewState extends State<CalendarPopupView>
   }
 
   @override
-  Widget build(BuildContext context,) {
+  Widget build(
+    BuildContext context,
+  ) {
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: AnimatedBuilder(
         animation: animationController,
-        builder: (BuildContext context, Widget? child,) {
+        builder: (
+          BuildContext context,
+          Widget? child,
+        ) {
           return AnimatedOpacity(
-            duration: Duration(milliseconds: 100,),
+            duration: const Duration(
+              milliseconds: 100,
+            ),
             opacity: animationController.value,
-            child: RemoveFocuse(
+            child: RemoveForce(
               onClick: () {
-                if (widget.barrierDismissible) Navigator.pop(context,);
+                if (widget.barrierDismissible)
+                  Navigator.pop(
+                    context,
+                  );
               },
               child: Center(
                 child: Padding(
-                  padding: const EdgeInsets.all(24.0,),
+                  padding: const EdgeInsets.all(
+                    24.0,
+                  ),
                   child: CommonCard(
                     color: AppTheme.backgroundColor,
                     radius: 24,
@@ -88,35 +109,45 @@ class _CalendarPopupViewState extends State<CalendarPopupView>
                         Row(
                           children: <Widget>[
                             _getFromToUi(
-                              AppLocalizations(context,).of("From_text",),
+                              AppLocalizations(
+                                context,
+                              ).of(
+                                "From_text",
+                              ),
                               startDate != null
                                   ? DateFormat(
-                                          "EEE, dd MMM",
-                                          _languageType
-                                              .toString()
-                                              .split(".")[1],)
-                                      .format(startDate!,)
+                                      "EEE, dd MMM",
+                                      _languageType.toString().split(".")[1],
+                                    ).format(
+                                      startDate!,
+                                    )
                                   : "--/-- ",
                             ),
                             Container(
                               height: 74,
                               width: 1,
-                              color: Theme.of(context,).dividerColor,
+                              color: Theme.of(
+                                context,
+                              ).dividerColor,
                             ),
                             _getFromToUi(
-                              AppLocalizations(context,).of("to_text",),
+                              AppLocalizations(
+                                context,
+                              ).of(
+                                "to_text",
+                              ),
                               endDate != null
                                   ? DateFormat(
-                                          "EEE, dd MMM",
-                                          _languageType
-                                              .toString()
-                                              .split(".")[1],)
-                                      .format(endDate!,)
+                                      "EEE, dd MMM",
+                                      _languageType.toString().split(".")[1],
+                                    ).format(
+                                      endDate!,
+                                    )
                                   : "--/-- ",
                             ),
                           ],
                         ),
-                        Divider(
+                        const Divider(
                           height: 1,
                         ),
                         CustomCalendarView(
@@ -124,25 +155,41 @@ class _CalendarPopupViewState extends State<CalendarPopupView>
                           maximumDate: widget.maximumDate,
                           initialEndDate: widget.initialEndDate,
                           initialStartDate: widget.initialStartDate,
-                          startEndDateChange:
-                              (DateTime startDateData, DateTime endDateData,) {
-                            setState(() {
-                              startDate = startDateData;
-                              endDate = endDateData;
-                            },);
+                          startEndDateChange: (
+                            DateTime startDateData,
+                            DateTime endDateData,
+                          ) {
+                            setState(
+                              () {
+                                startDate = startDateData;
+                                endDate = endDateData;
+                              },
+                            );
                           },
                         ),
                         Padding(
                           padding: const EdgeInsets.only(
-                              left: 16, right: 16, bottom: 16, top: 8,),
+                            left: 16,
+                            right: 16,
+                            bottom: 16,
+                            top: 8,
+                          ),
                           child: CommonButton(
-                            buttonText:
-                                AppLocalizations(context,).of("Apply_date",),
+                            buttonText: AppLocalizations(
+                              context,
+                            ).of(
+                              "Apply_date",
+                            ),
                             onTap: () {
                               try {
-                                widget.onApplyClick(startDate!, endDate!,);
-                                Navigator.pop(context,);
-                              } catch (e,) {}
+                                widget.onApplyClick(
+                                  startDate!,
+                                  endDate!,
+                                );
+                                Navigator.pop(
+                                  context,
+                                );
+                              } catch (e) {}
                             },
                           ),
                         ),
@@ -158,7 +205,10 @@ class _CalendarPopupViewState extends State<CalendarPopupView>
     );
   }
 
-  Widget _getFromToUi(String title, String subtext,) {
+  Widget _getFromToUi(
+    String title,
+    String subtext,
+  ) {
     return Expanded(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -167,16 +217,20 @@ class _CalendarPopupViewState extends State<CalendarPopupView>
           Text(
             title,
             textAlign: TextAlign.left,
-            style: TextStyles(context,).getDescriptionStyle().copyWith(
+            style: TextStyles(
+              context,
+            ).getDescriptionStyle().copyWith(
                   fontSize: 16,
                 ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 4,
           ),
           Text(
             subtext,
-            style: TextStyles(context,).getBoldStyle().copyWith(
+            style: TextStyles(
+              context,
+            ).getBoldStyle().copyWith(
                   fontSize: 16,
                 ),
           ),

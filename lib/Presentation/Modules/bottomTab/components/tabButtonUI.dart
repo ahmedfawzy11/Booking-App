@@ -1,6 +1,6 @@
+import 'package:booking_app/Application/Utils/textStyles.dart';
+import 'package:booking_app/Application/Utils/themes.dart';
 import 'package:flutter/material.dart';
-import 'package:booking_app/utils/text_styles.dart';
-import 'package:booking_app/utils/themes.dart';
 
 class TabButtonUI extends StatelessWidget {
   final IconData icon;
@@ -8,16 +8,20 @@ class TabButtonUI extends StatelessWidget {
   final bool isSelected;
   final String text;
 
-  const TabButtonUI(
-      {Key? key,
-      this.onTap,
-      required this.icon,
-      required this.isSelected,
-      required this.text,})
-      : super(key: key,);
+  const TabButtonUI({
+    Key? key,
+    this.onTap,
+    required this.icon,
+    required this.isSelected,
+    required this.text,
+  }) : super(
+          key: key,
+        );
 
   @override
-  Widget build(BuildContext context,) {
+  Widget build(
+    BuildContext context,
+  ) {
     final _color =
         isSelected ? AppTheme.primaryColor : AppTheme.secondaryTextColor;
     return Expanded(
@@ -25,7 +29,11 @@ class TabButtonUI extends StatelessWidget {
         color: Colors.transparent,
         child: InkWell(
           highlightColor: Colors.transparent,
-          splashColor: Theme.of(context,).primaryColor.withOpacity(0.2,),
+          splashColor: Theme.of(
+            context,
+          ).primaryColor.withOpacity(
+                0.2,
+              ),
           onTap: onTap,
           child: Column(
             children: <Widget>[
@@ -42,12 +50,16 @@ class TabButtonUI extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(bottom: 0,),
+                padding: const EdgeInsets.only(
+                  bottom: 0,
+                ),
                 child: FittedBox(
                   fit: BoxFit.fill,
                   child: Text(
                     text,
-                    style: TextStyles(context,).getDescriptionStyle().copyWith(
+                    style: TextStyles(
+                      context,
+                    ).getDescriptionStyle().copyWith(
                           color: _color,
                         ),
                   ),

@@ -1,46 +1,82 @@
+import 'package:booking_app/Application/Providers/themeProvider.dart';
+import 'package:booking_app/Application/Utils/enum.dart';
+import 'package:booking_app/Application/Utils/helper.dart';
+import 'package:booking_app/Application/Utils/textStyles.dart';
+import 'package:booking_app/Data/Language/appLocalizations.dart';
+import 'package:booking_app/Data/Models/roomData.dart';
+import 'package:booking_app/Presentation/Modules/hotelBooking/Components/calendarPopUpView.dart';
+import 'package:booking_app/Presentation/Modules/hotelBooking/Components/roomPopUpView.dart';
+import 'package:booking_app/bookingApp.dart';
 import 'package:flutter/material.dart';
-import 'package:booking_app/language/appLocalizations.dart';
-import 'package:booking_app/models/room_data.dart';
-import 'package:booking_app/modules/hotel_booking/components/calendar_pop_up_view.dart';
-import 'package:booking_app/modules/hotel_booking/components/room_pop_up_view.dart';
-import 'package:booking_app/booking_app.dart';
-import 'package:booking_app/providers/theme_provider.dart';
-import 'package:booking_app/utils/enum.dart';
-import 'package:booking_app/utils/helper.dart';
-import 'package:booking_app/utils/text_styles.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 class TimeDateView extends StatefulWidget {
+  const TimeDateView({super.key});
+
   @override
   _TimeDateViewState createState() => _TimeDateViewState();
 }
 
 class _TimeDateViewState extends State<TimeDateView> {
-  RoomData _roomData = RoomData(1, 2,);
+  RoomData _roomData = RoomData(
+    1,
+    2,
+  );
   DateTime startDate = DateTime.now();
-  DateTime endDate = DateTime.now().add(Duration(days: 5,),);
+  DateTime endDate = DateTime.now().add(
+    const Duration(
+      days: 5,
+    ),
+  );
   LanguageType _languageType = applicationcontext == null
       ? LanguageType.en
       : applicationcontext!.read<ThemeProvider>().languageType;
   @override
-  Widget build(BuildContext context,) {
+  Widget build(
+    BuildContext context,
+  ) {
     return Padding(
-      padding: EdgeInsets.only(left: 16, bottom: 16, right: 16,),
+      padding: const EdgeInsets.only(
+        left: 16,
+        bottom: 16,
+        right: 16,
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          _getDateRoomUi(AppLocalizations(context,).of("choose_date",),
-              "${DateFormat("dd, MMM", _languageType.toString().split(".",)[1],).format(startDate,)} - ${DateFormat("dd, MMM", _languageType.toString().split(".")[1]).format(endDate)}",
+          _getDateRoomUi(
+              AppLocalizations(
+                context,
+              ).of(
+                "choose_date",
+              ),
+              "${DateFormat(
+                "dd, MMM",
+                _languageType.toString().split(
+                      ".",
+                    )[1],
+              ).format(
+                startDate,
+              )} - ${DateFormat("dd, MMM", _languageType.toString().split(".")[1]).format(endDate)}",
               () {
-            _showDemoDialog(context,);
+            _showDemoDialog(
+              context,
+            );
           }),
           Container(
             width: 1,
             height: 42,
-            color: Colors.grey.withOpacity(0.8,),
+            color: Colors.grey.withOpacity(
+              0.8,
+            ),
           ),
-          _getDateRoomUi(AppLocalizations(context,).of("number_room",),
+          _getDateRoomUi(
+              AppLocalizations(
+                context,
+              ).of(
+                "number_room",
+              ),
               Helper.getRoomText(_roomData), () {
             _showPopUp();
           }),
@@ -49,38 +85,52 @@ class _TimeDateViewState extends State<TimeDateView> {
     );
   }
 
-  Widget _getDateRoomUi(String title, String subtitle, VoidCallback onTap,) {
+  Widget _getDateRoomUi(
+    String title,
+    String subtitle,
+    VoidCallback onTap,
+  ) {
     return Expanded(
       child: Row(
         children: <Widget>[
           Material(
             color: Colors.transparent,
             child: InkWell(
-              borderRadius: BorderRadius.all(
-                Radius.circular(4.0,),
+              borderRadius: const BorderRadius.all(
+                Radius.circular(
+                  4.0,
+                ),
               ),
               onTap: onTap,
               child: Padding(
-                padding:
-                    const EdgeInsets.only(left: 8, right: 8, top: 4, bottom: 4,),
+                padding: const EdgeInsets.only(
+                  left: 8,
+                  right: 8,
+                  top: 4,
+                  bottom: 4,
+                ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
                       title,
-                      "Choose date",
-                      style: TextStyles(context,)
-                          .getDescriptionStyle()
-                          .copyWith(fontSize: 16,),
+                      // "Choose date",
+                      style: TextStyles(
+                        context,
+                      ).getDescriptionStyle().copyWith(
+                            fontSize: 16,
+                          ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 8,
                     ),
                     Text(
                       subtitle,
-                      "${DateFormat("dd, MMM",).format(startDate,)} - ${DateFormat("dd, MMM",).format(endDate,)}",
-                      style: TextStyles(context,).getRegularStyle(),
+                      // "${DateFormat("dd, MMM",).format(startDate,)} - ${DateFormat("dd, MMM",).format(endDate,)}",
+                      style: TextStyles(
+                        context,
+                      ).getRegularStyle(),
                     ),
                   ],
                 ),
@@ -92,21 +142,34 @@ class _TimeDateViewState extends State<TimeDateView> {
     );
   }
 
-  void _showDemoDialog(BuildContext context,) {
+  void _showDemoDialog(
+    BuildContext context,
+  ) {
     showDialog(
       context: context,
-      builder: (BuildContext context,) => CalendarPopupView(
+      builder: (
+        BuildContext context,
+      ) =>
+          CalendarPopupView(
         barrierDismissible: true,
         minimumDate: DateTime.now(),
         maximumDate: DateTime(
-            DateTime.now().year, DateTime.now().month, DateTime.now().day + 10,),
+          DateTime.now().year,
+          DateTime.now().month,
+          DateTime.now().day + 10,
+        ),
         initialEndDate: endDate,
         initialStartDate: startDate,
-        onApplyClick: (DateTime startData, DateTime endData,) {
-          setState(() {
-            startDate = startData;
-            endDate = endData;
-          },);
+        onApplyClick: (
+          DateTime startData,
+          DateTime endData,
+        ) {
+          setState(
+            () {
+              startDate = startData;
+              endDate = endData;
+            },
+          );
         },
         onCancelClick: () {},
       ),
@@ -116,13 +179,20 @@ class _TimeDateViewState extends State<TimeDateView> {
   void _showPopUp() {
     showDialog(
       context: context,
-      builder: (BuildContext context,) => RoomPopupView(
+      builder: (
+        BuildContext context,
+      ) =>
+          RoomPopupView(
         roomData: _roomData,
         barrierDismissible: true,
-        onChnage: (data,) {
-          setState(() {
-            _roomData = data;
-          },);
+        onChange: (
+          data,
+        ) {
+          setState(
+            () {
+              _roomData = data;
+            },
+          );
         },
       ),
     );

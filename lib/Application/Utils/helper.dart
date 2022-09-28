@@ -29,7 +29,7 @@ class Helper {
     return "${dateText.startDate} - ${dateText.endDate} ${DateFormat('MMM', languageType.toString().split(".")[1]).format(DateTime.now().add(const Duration(days: 2)))}";
   }
 
-  static String getPeopleandChildren(RoomData roomData) {
+  static String getPeopleAndChildren(RoomData roomData) {
     return "${AppLocalizations(applicationcontext!).of("sleeps")} ${roomData.numberRoom} ${AppLocalizations(applicationcontext!).of("people_data")} + ${roomData.numberRoom} ${AppLocalizations(applicationcontext!).of("children")} ";
   }
 

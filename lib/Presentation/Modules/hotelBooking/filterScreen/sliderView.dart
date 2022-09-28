@@ -1,13 +1,17 @@
+import 'package:booking_app/Data/Language/appLocalizations.dart';
 import 'package:flutter/material.dart';
-import 'package:booking_app/language/appLocalizations.dart';
 
 class SliderView extends StatefulWidget {
   final Function(double) onChangedListValue;
   final double distValue;
 
-  const SliderView(
-      {Key? key, required this.onChnagedistValue, required this.distValue,})
-      : super(key: key,);
+  const SliderView({
+    Key? key,
+    required this.distValue,
+    required this.onChangedListValue,
+  }) : super(
+          key: key,
+        );
   @override
   _SliderViewState createState() => _SliderViewState();
 }
@@ -22,7 +26,9 @@ class _SliderViewState extends State<SliderView> {
   }
 
   @override
-  Widget build(BuildContext context,) {
+  Widget build(
+    BuildContext context,
+  ) {
     return Container(
       child: Column(
         children: <Widget>[
@@ -37,18 +43,29 @@ class _SliderViewState extends State<SliderView> {
                 child: Row(
                   children: [
                     Text(
-                      AppLocalizations(context,).of("Less_than",),
+                      AppLocalizations(
+                        context,
+                      ).of(
+                        "Less_than",
+                      ),
                       textAlign: TextAlign.center,
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 4.0, right: 4.0,),
+                      padding: const EdgeInsets.only(
+                        left: 4.0,
+                        right: 4.0,
+                      ),
                       child: Text(
-                        "${(distValue / 10).toStringAsFixed(1,),}",
+                        (distValue / 10).toStringAsFixed(1),
                         textAlign: TextAlign.center,
                       ),
                     ),
                     Text(
-                      AppLocalizations(context,).of("km_text",),
+                      AppLocalizations(
+                        context,
+                      ).of(
+                        "km_text",
+                      ),
                       textAlign: TextAlign.center,
                     ),
                   ],
@@ -61,18 +78,26 @@ class _SliderViewState extends State<SliderView> {
             ],
           ),
           Slider(
-            onChanged: (value,) {
+            onChanged: (
+              value,
+            ) {
               setState(() {
                 distValue = value;
               });
               try {
-                widget.onChnagedistValue(distValue,);
+                widget.onChangedListValue(
+                  distValue,
+                );
               } catch (e) {}
             },
             min: 0.0,
             max: 100.0,
-            activeColor: Theme.of(context,).primaryColor,
-            inactiveColor: Colors.grey.withOpacity(0.4,),
+            activeColor: Theme.of(
+              context,
+            ).primaryColor,
+            inactiveColor: Colors.grey.withOpacity(
+              0.4,
+            ),
             value: distValue,
           ),
         ],

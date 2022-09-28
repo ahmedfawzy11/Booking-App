@@ -1,16 +1,18 @@
+import 'package:booking_app/Application/Utils/textStyles.dart';
+import 'package:booking_app/Application/Utils/themes.dart';
+import 'package:booking_app/Application/Utils/validator.dart';
+import 'package:booking_app/Application/Widgets/commonAppbarView.dart';
+import 'package:booking_app/Application/Widgets/commonButton.dart';
+import 'package:booking_app/Application/Widgets/commonTextFieldView.dart';
+import 'package:booking_app/Application/Widgets/removeForce.dart';
+import 'package:booking_app/Data/Language/appLocalizations.dart';
+import 'package:booking_app/Presentation/Modules/login/facebookTwitterButtonView.dart';
+import 'package:booking_app/Presentation/Routes/routeNames.dart';
 import 'package:flutter/material.dart';
-import 'package:booking_app/utils/text_styles.dart';
-import 'package:booking_app/utils/themes.dart';
-import 'package:booking_app/language/appLocalizations.dart';
-import 'package:booking_app/modules/login/facebook_twitter_button_view.dart';
-import 'package:booking_app/routes/route_names.dart';
-import 'package:booking_app/utils/validator.dart';
-import 'package:booking_app/widgets/common_appbar_view.dart';
-import 'package:booking_app/widgets/common_button.dart';
-import 'package:booking_app/widgets/common_text_field_view.dart';
-import 'package:booking_app/widgets/remove_focuse.dart';
 
 class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({super.key});
+
   @override
   _SignUpScreenState createState() => _SignUpScreenState();
 }
@@ -26,12 +28,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
   TextEditingController _lnameController = TextEditingController();
 
   @override
-  Widget build(BuildContext context,) {
+  Widget build(
+    BuildContext context,
+  ) {
     return Container(
       child: Scaffold(
-        body: RemoveFocuse(
+        body: RemoveForce(
           onClick: () {
-            FocusScope.of(context,).requestFocus(FocusNode(),);
+            FocusScope.of(
+              context,
+            ).requestFocus(
+              FocusNode(),
+            );
           },
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -42,19 +50,29 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 child: SingleChildScrollView(
                   child: Column(
                     children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.only(top: 32,),
+                      const Padding(
+                        padding: EdgeInsets.only(
+                          top: 32,
+                        ),
                         child: FacebookTwitterButtonView(),
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(16.0,),
+                        padding: const EdgeInsets.all(
+                          16.0,
+                        ),
                         child: Text(
-                          AppLocalizations(context,).of("log_with mail",),
+                          AppLocalizations(
+                            context,
+                          ).of(
+                            "log_with mail",
+                          ),
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w500,
-                            color: Theme.of(context,).disabledColor,
+                            color: Theme.of(
+                              context,
+                            ).disabledColor,
                           ),
                         ),
                       ),
@@ -62,64 +80,128 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         controller: _fnameController,
                         errorText: _errorFName,
                         padding: const EdgeInsets.only(
-                            bottom: 16, left: 24, right: 24,),
-                        titleText: AppLocalizations(context,).of("first_name",),
-                        hintText:
-                            AppLocalizations(context,).of("enter_first_name",),
+                          bottom: 16,
+                          left: 24,
+                          right: 24,
+                        ),
+                        titleText: AppLocalizations(
+                          context,
+                        ).of(
+                          "first_name",
+                        ),
+                        hintText: AppLocalizations(
+                          context,
+                        ).of(
+                          "enter_first_name",
+                        ),
                         keyboardType: TextInputType.name,
-                        onChanged: (String txt,) {},
+                        onChanged: (
+                          String txt,
+                        ) {},
                       ),
                       CommonTextFieldView(
                         controller: _lnameController,
                         errorText: _errorLName,
                         padding: const EdgeInsets.only(
-                            bottom: 16, left: 24, right: 24,),
-                        titleText: AppLocalizations(context,).of("last_name",),
-                        hintText:
-                            AppLocalizations(context,).of("enter_last_name",),
+                          bottom: 16,
+                          left: 24,
+                          right: 24,
+                        ),
+                        titleText: AppLocalizations(
+                          context,
+                        ).of(
+                          "last_name",
+                        ),
+                        hintText: AppLocalizations(
+                          context,
+                        ).of(
+                          "enter_last_name",
+                        ),
                         keyboardType: TextInputType.name,
-                        onChanged: (String txt,) {},
+                        onChanged: (
+                          String txt,
+                        ) {},
                       ),
                       CommonTextFieldView(
                         controller: _emailController,
                         errorText: _errorEmail,
-                        titleText: AppLocalizations(context,).of("your_mail",),
+                        titleText: AppLocalizations(
+                          context,
+                        ).of(
+                          "your_mail",
+                        ),
                         padding: const EdgeInsets.only(
-                            left: 24, right: 24, bottom: 16,),
-                        hintText:
-                            AppLocalizations(context,).of("enter_your_email",),
+                          left: 24,
+                          right: 24,
+                          bottom: 16,
+                        ),
+                        hintText: AppLocalizations(
+                          context,
+                        ).of(
+                          "enter_your_email",
+                        ),
                         keyboardType: TextInputType.emailAddress,
-                        onChanged: (String txt,) {},
+                        onChanged: (
+                          String txt,
+                        ) {},
                       ),
                       CommonTextFieldView(
-                        titleText: AppLocalizations(context,).of("password",),
+                        titleText: AppLocalizations(
+                          context,
+                        ).of(
+                          "password",
+                        ),
                         padding: const EdgeInsets.only(
-                            left: 24, right: 24, bottom: 24,),
-                        hintText:
-                            AppLocalizations(context,).of('enter_password',),
+                          left: 24,
+                          right: 24,
+                          bottom: 24,
+                        ),
+                        hintText: AppLocalizations(
+                          context,
+                        ).of(
+                          'enter_password',
+                        ),
                         isObscureText: true,
-                        onChanged: (String txt,) {},
+                        onChanged: (
+                          String txt,
+                        ) {},
                         errorText: _errorPassword,
                         controller: _passwordController,
                       ),
                       CommonButton(
-                        padding:
-                            EdgeInsets.only(left: 24, right: 24, bottom: 8,),
-                        buttonText: AppLocalizations(context,).of("sign_up",),
+                        padding: const EdgeInsets.only(
+                          left: 24,
+                          right: 24,
+                          bottom: 8,
+                        ),
+                        buttonText: AppLocalizations(
+                          context,
+                        ).of(
+                          "sign_up",
+                        ),
                         onTap: () {
-                          if (_allValidation())
+                          if (_allValidation()) {
                             NavigationServices(context).gotoTabScreen();
+                          }
                         },
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(16.0,),
+                        padding: const EdgeInsets.all(
+                          16.0,
+                        ),
                         child: Text(
-                          AppLocalizations(context,).of("terms_agreed",),
+                          AppLocalizations(
+                            context,
+                          ).of(
+                            "terms_agreed",
+                          ),
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w500,
-                            color: Theme.of(context,).disabledColor,
+                            color: Theme.of(
+                              context,
+                            ).disabledColor,
                           ),
                         ),
                       ),
@@ -128,8 +210,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
                           Text(
-                            AppLocalizations(context,)
-                                .of("already_have_account",),
+                            AppLocalizations(
+                              context,
+                            ).of(
+                              "already_have_account",
+                            ),
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontSize: 14,
@@ -138,17 +223,29 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             ),
                           ),
                           InkWell(
-                            borderRadius: BorderRadius.all(Radius.circular(8,),),
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(
+                                8,
+                              ),
+                            ),
                             onTap: () {
-                              NavigationServices(context,).gotoLoginScreen();
+                              NavigationServices(
+                                context,
+                              ).gotoLoginScreen();
                             },
                             child: Padding(
-                              padding: const EdgeInsets.all(4.0,),
+                              padding: const EdgeInsets.all(
+                                4.0,
+                              ),
                               child: Text(
-                                AppLocalizations(context,).of("login",),
-                                style: TextStyles(context,)
-                                    .getRegularStyle()
-                                    .copyWith(
+                                AppLocalizations(
+                                  context,
+                                ).of(
+                                  "login",
+                                ),
+                                style: TextStyles(
+                                  context,
+                                ).getRegularStyle().copyWith(
                                       fontWeight: FontWeight.bold,
                                       color: AppTheme.primaryColor,
                                     ),
@@ -158,7 +255,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ],
                       ),
                       SizedBox(
-                        height: MediaQuery.of(context,).padding.bottom + 24,
+                        height: MediaQuery.of(
+                              context,
+                            ).padding.bottom +
+                            24,
                       ),
                     ],
                   ),
@@ -172,11 +272,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
   Widget _appBar() {
-    return CommonAppbarView(
+    return CommonAppBarView(
       iconData: Icons.arrow_back,
-      titleText: AppLocalizations(context,).of("sign_up",),
+      titleText: AppLocalizations(
+        context,
+      ).of(
+        "sign_up",
+      ),
       onBackClick: () {
-        Navigator.pop(context,);
+        Navigator.pop(
+          context,
+        );
       },
     );
   }
@@ -185,34 +291,60 @@ class _SignUpScreenState extends State<SignUpScreen> {
     bool isValid = true;
 
     if (_fnameController.text.trim().isEmpty) {
-      _errorFName = AppLocalizations(context,).of('first_name_cannot_empty',);
+      _errorFName = AppLocalizations(
+        context,
+      ).of(
+        'first_name_cannot_empty',
+      );
       isValid = false;
     } else {
       _errorFName = '';
     }
 
     if (_lnameController.text.trim().isEmpty) {
-      _errorLName = AppLocalizations(context,).of('last_name_cannot_empty',);
+      _errorLName = AppLocalizations(
+        context,
+      ).of(
+        'last_name_cannot_empty',
+      );
       isValid = false;
     } else {
       _errorLName = '';
     }
 
     if (_emailController.text.trim().isEmpty) {
-      _errorEmail = AppLocalizations(context,).of('email_cannot_empty',);
+      _errorEmail = AppLocalizations(
+        context,
+      ).of(
+        'email_cannot_empty',
+      );
       isValid = false;
-    } else if (!Validator.validateEmail(_emailController.text.trim(),),) {
-      _errorEmail = AppLocalizations(context,).of('enter_valid_email',);
+    } else if (!Validator.validateEmail(
+      _emailController.text.trim(),
+    )) {
+      _errorEmail = AppLocalizations(
+        context,
+      ).of(
+        'enter_valid_email',
+      );
       isValid = false;
     } else {
       _errorEmail = '';
     }
 
     if (_passwordController.text.trim().isEmpty) {
-      _errorPassword = AppLocalizations(context,).of('password_cannot_empty',);
+      _errorPassword = AppLocalizations(
+        context,
+      ).of(
+        'password_cannot_empty',
+      );
       isValid = false;
     } else if (_passwordController.text.trim().length < 6) {
-      _errorPassword = AppLocalizations(context,).of('valid_password',);
+      _errorPassword = AppLocalizations(
+        context,
+      ).of(
+        'valid_password',
+      );
       isValid = false;
     } else {
       _errorPassword = '';

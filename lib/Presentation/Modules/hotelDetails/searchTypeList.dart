@@ -1,6 +1,7 @@
+import 'package:booking_app/Application/Widgets/commonCard.dart';
+import 'package:booking_app/Data/Language/appLocalizations.dart';
+import 'package:booking_app/Data/Models/hotelListData.dart';
 import 'package:flutter/material.dart';
-import 'package:booking_app/language/appLocalizations.dart';
-import 'package:booking_app/widgets/common_card.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SearchTypeListView extends StatefulWidget {
@@ -17,7 +18,11 @@ class _SearchTypeListViewState extends State<SearchTypeListView>
   @override
   void initState() {
     animationController = AnimationController(
-        duration: Duration(milliseconds: 2000,), vsync: this,);
+      duration: const Duration(
+        milliseconds: 2000,
+      ),
+      vsync: this,
+    );
     super.initState();
   }
 
@@ -28,34 +33,56 @@ class _SearchTypeListViewState extends State<SearchTypeListView>
   }
 
   @override
-  Widget build(BuildContext context,) {
+  Widget build(
+    BuildContext context,
+  ) {
     return Container(
       height: 114,
       child: ListView.builder(
-        padding: const EdgeInsets.only(top: 0, right: 16, left: 16,),
+        padding: const EdgeInsets.only(
+          top: 0,
+          right: 16,
+          left: 16,
+        ),
         itemCount: hotelTypeList.length,
         scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index,) {
+        itemBuilder: (
+          context,
+          index,
+        ) {
           var count = hotelTypeList.length;
           var animation = Tween(begin: 0.0, end: 1.0).animate(
             CurvedAnimation(
               parent: animationController,
-              curve: Interval((1 / count,) * index, 1.0,
-                  curve: Curves.fastOutSlowIn,),
+              curve: Interval(
+                (1 / count) * index,
+                1.0,
+                curve: Curves.fastOutSlowIn,
+              ),
             ),
           );
           animationController.forward();
           return AnimatedBuilder(
             animation: animationController,
-            builder: (BuildContext context, Widget? child,) {
+            builder: (
+              BuildContext context,
+              Widget? child,
+            ) {
               return FadeTransition(
                 opacity: animation,
-                child: new Transform(
-                  transform: new Matrix4.translationValues(
-                      50 * (1.0 - animation.value,), 0.0, 0.0,),
+                child: Transform(
+                  transform: Matrix4.translationValues(
+                    50 * (1.0 - animation.value),
+                    0.0,
+                    0.0,
+                  ),
                   child: Padding(
                     padding: const EdgeInsets.only(
-                        left: 8.0, right: 8.0, bottom: 8, top: 0,),
+                      left: 8.0,
+                      right: 8.0,
+                      bottom: 8,
+                      top: 0,
+                    ),
                     child: Column(
                       children: <Widget>[
                         Stack(
@@ -64,19 +91,27 @@ class _SearchTypeListViewState extends State<SearchTypeListView>
                               width: 80,
                               decoration: BoxDecoration(
                                 color: Theme.of(context).primaryColor,
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(80.0,),),
+                                borderRadius: const BorderRadius.all(
+                                  Radius.circular(
+                                    80.0,
+                                  ),
+                                ),
                                 boxShadow: <BoxShadow>[
                                   BoxShadow(
-                                    color: Theme.of(context,).dividerColor,
+                                    color: Theme.of(
+                                      context,
+                                    ).dividerColor,
                                     blurRadius: 8,
-                                    offset: Offset(4, 4),
+                                    offset: const Offset(4, 4),
                                   ),
                                 ],
                               ),
                               child: ClipRRect(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(80.0,),),
+                                borderRadius: const BorderRadius.all(
+                                  Radius.circular(
+                                    80.0,
+                                  ),
+                                ),
                                 child: AspectRatio(
                                   aspectRatio: 1,
                                   child: Image.asset(
@@ -89,12 +124,17 @@ class _SearchTypeListViewState extends State<SearchTypeListView>
                             Material(
                               color: Colors.transparent,
                               child: InkWell(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(80.0,),),
+                                borderRadius: const BorderRadius.all(
+                                  Radius.circular(
+                                    80.0,
+                                  ),
+                                ),
                                 highlightColor: Colors.transparent,
-                                splashColor: Theme.of(context,)
-                                    .primaryColor
-                                    .withOpacity(0.4,),
+                                splashColor: Theme.of(
+                                  context,
+                                ).primaryColor.withOpacity(
+                                      0.4,
+                                    ),
                                 onTap: () {
                                   setState(() {
                                     hotelTypeList[index].isSelected =
@@ -106,9 +146,11 @@ class _SearchTypeListViewState extends State<SearchTypeListView>
                                       ? 1.0
                                       : 0.0,
                                   child: CommonCard(
-                                    color: Theme.of(context,)
-                                        .primaryColor
-                                        .withOpacity(0.4,),
+                                    color: Theme.of(
+                                      context,
+                                    ).primaryColor.withOpacity(
+                                          0.4,
+                                        ),
                                     radius: 48,
                                     child: SizedBox(
                                       height: 80,
@@ -116,8 +158,9 @@ class _SearchTypeListViewState extends State<SearchTypeListView>
                                       child: Center(
                                         child: Icon(
                                           FontAwesomeIcons.check,
-                                          color:
-                                              Theme.of(context,).backgroundColor,
+                                          color: Theme.of(
+                                            context,
+                                          ).backgroundColor,
                                         ),
                                       ),
                                     ),
@@ -128,12 +171,19 @@ class _SearchTypeListViewState extends State<SearchTypeListView>
                           ],
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(top: 4,),
+                          padding: const EdgeInsets.only(
+                            top: 4,
+                          ),
                           child: Text(
-                            AppLocalizations(context,)
-                                .of(hotelTypeList[index].titleTxt,),
+                            AppLocalizations(
+                              context,
+                            ).of(
+                              hotelTypeList[index].titleTxt,
+                            ),
                             maxLines: 2,
-                            style: TextStyle(fontSize: 12,),
+                            style: const TextStyle(
+                              fontSize: 12,
+                            ),
                           ),
                         ),
                       ],

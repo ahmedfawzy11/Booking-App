@@ -1,12 +1,12 @@
+import 'package:booking_app/Application/Utils/themes.dart';
+import 'package:booking_app/Application/Widgets/commonAppBarView.dart';
+import 'package:booking_app/Application/Widgets/commonButton.dart';
+import 'package:booking_app/Data/Language/appLocalizations.dart';
+import 'package:booking_app/Data/Models/popularFilterList.dart';
+import 'package:booking_app/Presentation/Modules/hotelBooking/filterScreen/rangeSliderView.dart';
+import 'package:booking_app/Presentation/Modules/hotelBooking/filterScreen/sliderView.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:booking_app/language/appLocalizations.dart';
-import 'package:booking_app/models/popular_filter_list.dart';
-import 'package:booking_app/modules/hotel_booking/filter_screen/slider_view.dart';
-import 'package:booking_app/utils/themes.dart';
-import 'package:booking_app/widgets/common_appbar_view.dart';
-import 'package:booking_app/widgets/common_button.dart';
-import 'range_slider_view.dart';
 
 class FiltersScreen extends StatefulWidget {
   @override
@@ -19,11 +19,16 @@ class _FiltersScreenState extends State<FiltersScreen> {
   List<PopularFilterListData> accomodationListData =
       PopularFilterListData.accomodationList;
 
-  RangeValues _values = RangeValues(100, 600,);
+  RangeValues _values = RangeValues(
+    100,
+    600,
+  );
   double distValue = 50.0;
 
   @override
-  Widget build(BuildContext context,) {
+  Widget build(
+    BuildContext context,
+  ) {
     return Container(
       color: AppTheme.scaffoldBackgroundColor,
       child: Scaffold(
@@ -31,17 +36,24 @@ class _FiltersScreenState extends State<FiltersScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            CommonAppbarView(
+            CommonAppBarView(
               iconData: Icons.close,
               onBackClick: () {
-                Navigator.pop(context,);
+                Navigator.pop(
+                  context,
+                );
               },
-              titleText: AppLocalizations(context,).of("filter"),
+              titleText: AppLocalizations(
+                context,
+              ).of("filter"),
             ),
             Expanded(
               child: SingleChildScrollView(
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 16, right: 16,),
+                  padding: const EdgeInsets.only(
+                    left: 16,
+                    right: 16,
+                  ),
                   child: Column(
                     children: <Widget>[
                       priceBarFilter(),
@@ -69,13 +81,24 @@ class _FiltersScreenState extends State<FiltersScreen> {
               padding: EdgeInsets.only(
                   left: 16,
                   right: 16,
-                  bottom: 16 + MediaQuery.of(context,).padding.bottom,
+                  bottom: 16 +
+                      MediaQuery.of(
+                        context,
+                      ).padding.bottom,
                   top: 8),
               child: CommonButton(
-                  buttonText: AppLocalizations(context,).of("Apply_text",),
-                  onTap: () {
-                    Navigator.pop(context, true,);
-                  },),
+                buttonText: AppLocalizations(
+                  context,
+                ).of(
+                  "Apply_text",
+                ),
+                onTap: () {
+                  Navigator.pop(
+                    context,
+                    true,
+                  );
+                },
+              ),
             ),
           ],
         ),
@@ -89,19 +112,36 @@ class _FiltersScreenState extends State<FiltersScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Padding(
-          padding:
-              const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 8,),
+          padding: const EdgeInsets.only(
+            left: 16,
+            right: 16,
+            top: 16,
+            bottom: 8,
+          ),
           child: Text(
-            AppLocalizations(context,).of("type of accommodation",),
+            AppLocalizations(
+              context,
+            ).of(
+              "type of accommodation",
+            ),
             textAlign: TextAlign.left,
             style: TextStyle(
-                color: Colors.grey,
-                fontSize: MediaQuery.of(context,).size.width > 360 ? 18 : 16,
-                fontWeight: FontWeight.normal,),
+              color: Colors.grey,
+              fontSize: MediaQuery.of(
+                        context,
+                      ).size.width >
+                      360
+                  ? 18
+                  : 16,
+              fontWeight: FontWeight.normal,
+            ),
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(right: 16, left: 16,),
+          padding: const EdgeInsets.only(
+            right: 16,
+            left: 16,
+          ),
           child: Column(
             children: getAccomodationListUI(),
           ),
@@ -121,29 +161,49 @@ class _FiltersScreenState extends State<FiltersScreen> {
         Material(
           color: Colors.transparent,
           child: InkWell(
-            borderRadius: BorderRadius.all(Radius.circular(4.0,),),
+            borderRadius: BorderRadius.all(
+              Radius.circular(
+                4.0,
+              ),
+            ),
             onTap: () {
               setState(() {
-                checkAppPosition(i,);
+                checkAppPosition(
+                  i,
+                );
               });
             },
             child: Padding(
-              padding: const EdgeInsets.all(8.0,),
+              padding: const EdgeInsets.all(
+                8.0,
+              ),
               child: Row(
                 children: <Widget>[
                   Expanded(
                     child: Text(
-                      AppLocalizations(context).of(date.titleTxt,),
+                      AppLocalizations(context).of(
+                        date.titleTxt,
+                      ),
                     ),
                   ),
                   CupertinoSwitch(
                     activeColor: date.isSelected
-                        ? Theme.of(context,).primaryColor
-                        : Colors.grey.withOpacity(0.6,),
-                    onChanged: (value,) {
-                      setState(() {
-                        checkAppPosition(i,);
-                      },);
+                        ? Theme.of(
+                            context,
+                          ).primaryColor
+                        : Colors.grey.withOpacity(
+                            0.6,
+                          ),
+                    onChanged: (
+                      value,
+                    ) {
+                      setState(
+                        () {
+                          checkAppPosition(
+                            i,
+                          );
+                        },
+                      );
                     },
                     value: date.isSelected,
                   ),
@@ -154,24 +214,32 @@ class _FiltersScreenState extends State<FiltersScreen> {
         ),
       );
       if (i == 0) {
-        noList.add(Divider(
-          height: 1,
-        ),);
+        noList.add(
+          Divider(
+            height: 1,
+          ),
+        );
       }
     }
     return noList;
   }
 
-  void checkAppPosition(int index,) {
+  void checkAppPosition(
+    int index,
+  ) {
     if (index == 0) {
       if (accomodationListData[0].isSelected) {
-        accomodationListData.forEach((d) {
-          d.isSelected = false;
-        },);
+        accomodationListData.forEach(
+          (d) {
+            d.isSelected = false;
+          },
+        );
       } else {
-        accomodationListData.forEach((d) {
-          d.isSelected = true;
-        },);
+        accomodationListData.forEach(
+          (d) {
+            d.isSelected = true;
+          },
+        );
       }
     } else {
       accomodationListData[index].isSelected =
@@ -201,24 +269,40 @@ class _FiltersScreenState extends State<FiltersScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Padding(
-          padding:
-              const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 8,),
+          padding: const EdgeInsets.only(
+            left: 16,
+            right: 16,
+            top: 16,
+            bottom: 8,
+          ),
           child: Text(
-            AppLocalizations(context,).of("distance from city",),
+            AppLocalizations(
+              context,
+            ).of(
+              "distance from city",
+            ),
             textAlign: TextAlign.left,
             style: TextStyle(
-                color: Colors.grey,
-                fontSize: MediaQuery.of(context,).size.width > 360 ? 18 : 16,
-                fontWeight: FontWeight.normal,),
+              color: Colors.grey,
+              fontSize: MediaQuery.of(
+                        context,
+                      ).size.width >
+                      360
+                  ? 18
+                  : 16,
+              fontWeight: FontWeight.normal,
+            ),
           ),
         ),
         SliderView(
           distValue: distValue,
-          onChangedistValue: (value,) {
+          onChangedListValue: (
+            value,
+          ) {
             distValue = value;
           },
         ),
-        SizedBox(
+        const SizedBox(
           height: 8,
         ),
       ],
@@ -231,19 +315,36 @@ class _FiltersScreenState extends State<FiltersScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Padding(
-          padding:
-              const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 8,),
+          padding: const EdgeInsets.only(
+            left: 16,
+            right: 16,
+            top: 16,
+            bottom: 8,
+          ),
           child: Text(
-            AppLocalizations(context,).of("popular filter",),
+            AppLocalizations(
+              context,
+            ).of(
+              "popular filter",
+            ),
             textAlign: TextAlign.left,
             style: TextStyle(
-                color: Colors.grey,
-                fontSize: MediaQuery.of(context,).size.width > 360 ? 18 : 16,
-                fontWeight: FontWeight.normal,),
+              color: Colors.grey,
+              fontSize: MediaQuery.of(
+                        context,
+                      ).size.width >
+                      360
+                  ? 18
+                  : 16,
+              fontWeight: FontWeight.normal,
+            ),
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(right: 16, left: 16,),
+          padding: const EdgeInsets.only(
+            right: 16,
+            left: 16,
+          ),
           child: Column(
             children: getPList(),
           ),
@@ -271,15 +372,25 @@ class _FiltersScreenState extends State<FiltersScreen> {
                   Material(
                     color: Colors.transparent,
                     child: InkWell(
-                      borderRadius: BorderRadius.all(Radius.circular(4.0,),),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(
+                          4.0,
+                        ),
+                      ),
                       onTap: () {
-                        setState(() {
-                          date.isSelected = !date.isSelected;
-                        },);
+                        setState(
+                          () {
+                            date.isSelected = !date.isSelected;
+                          },
+                        );
                       },
                       child: Padding(
                         padding: const EdgeInsets.only(
-                            left: 8.0, top: 8, bottom: 8, right: 0,),
+                          left: 8.0,
+                          top: 8,
+                          bottom: 8,
+                          right: 0,
+                        ),
                         child: Row(
                           children: <Widget>[
                             Icon(
@@ -287,8 +398,12 @@ class _FiltersScreenState extends State<FiltersScreen> {
                                   ? Icons.check_box
                                   : Icons.check_box_outline_blank,
                               color: date.isSelected
-                                  ? Theme.of(context,).primaryColor
-                                  : Colors.grey.withOpacity(0.6,),
+                                  ? Theme.of(
+                                      context,
+                                    ).primaryColor
+                                  : Colors.grey.withOpacity(
+                                      0.6,
+                                    ),
                             ),
                             SizedBox(
                               width: 4,
@@ -296,7 +411,11 @@ class _FiltersScreenState extends State<FiltersScreen> {
                             FittedBox(
                               fit: BoxFit.cover,
                               child: Text(
-                                AppLocalizations(context,).of(date.titleTxt,),
+                                AppLocalizations(
+                                  context,
+                                ).of(
+                                  date.titleTxt,
+                                ),
                               ),
                             ),
                           ],
@@ -311,12 +430,14 @@ class _FiltersScreenState extends State<FiltersScreen> {
           cout += 1;
         } catch (e) {}
       }
-      noList.add(Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisSize: MainAxisSize.min,
-        children: listUI,
-      ),);
+      noList.add(
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: listUI,
+        ),
+      );
     }
     return noList;
   }
@@ -327,23 +448,35 @@ class _FiltersScreenState extends State<FiltersScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Padding(
-          padding: const EdgeInsets.all(16.0,),
+          padding: const EdgeInsets.all(
+            16.0,
+          ),
           child: Text(
-            AppLocalizations(context,).of("price_text",),
+            AppLocalizations(
+              context,
+            ).of(
+              "price_text",
+            ),
             textAlign: TextAlign.left,
             style: TextStyle(
-                color: Colors.grey,
-                fontSize: MediaQuery.of(context,).size.width > 360 ? 18 : 16,
-                fontWeight: FontWeight.normal,),
+              color: Colors.grey,
+              fontSize: MediaQuery.of(
+                        context,
+                      ).size.width >
+                      360
+                  ? 18
+                  : 16,
+              fontWeight: FontWeight.normal,
+            ),
           ),
         ),
         RangeSliderView(
           values: _values,
-          onChnageRangeValues: (values) {
+          onChangeRangeValues: (values) {
             _values = values;
           },
         ),
-        SizedBox(
+        const SizedBox(
           height: 8,
         ),
       ],

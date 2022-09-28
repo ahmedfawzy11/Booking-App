@@ -1,21 +1,31 @@
+import 'package:booking_app/Application/Utils/textStyles.dart';
+import 'package:booking_app/Data/Language/appLocalizations.dart';
 import 'package:flutter/material.dart';
-import 'package:booking_app/language/appLocalizations.dart';
-import 'package:booking_app/utils/text_styles.dart';
 
 class PagePopup extends StatelessWidget {
   final PageViewData imageData;
 
-  const PagePopup({Key? key, required this.imageData,}) : super(key: key,);
+  const PagePopup({
+    Key? key,
+    required this.imageData,
+  }) : super(
+          key: key,
+        );
 
   @override
-  Widget build(BuildContext context,) {
+  Widget build(
+    BuildContext context,
+  ) {
     return Column(
       children: <Widget>[
         Expanded(
           flex: 8,
           child: Center(
             child: Container(
-              width: MediaQuery.of(context,).size.width - 120,
+              width: MediaQuery.of(
+                    context,
+                  ).size.width -
+                  120,
               child: AspectRatio(
                 aspectRatio: 1,
                 child: Image.asset(
@@ -30,9 +40,15 @@ class PagePopup extends StatelessWidget {
           flex: 1,
           child: Container(
             child: Text(
-              AppLocalizations(context,).of(imageData.titleText,),
+              AppLocalizations(
+                context,
+              ).of(
+                imageData.titleText,
+              ),
               textAlign: TextAlign.center,
-              style: TextStyles(context,).getTitleStyle().copyWith(
+              style: TextStyles(
+                context,
+              ).getTitleStyle().copyWith(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                   ),
@@ -43,13 +59,19 @@ class PagePopup extends StatelessWidget {
           flex: 1,
           child: Container(
             child: Text(
-              AppLocalizations(context,).of(imageData.subText,),
+              AppLocalizations(
+                context,
+              ).of(
+                imageData.subText,
+              ),
               textAlign: TextAlign.center,
-              style: TextStyles(context,).getDescriptionStyle(),
+              style: TextStyles(
+                context,
+              ).getDescriptionStyle(),
             ),
           ),
         ),
-        Expanded(
+        const Expanded(
           flex: 1,
           child: SizedBox(),
         ),
@@ -67,5 +89,5 @@ class PageViewData {
     required this.titleText,
     required this.subText,
     required this.assetsImage,
-  },);
+  });
 }

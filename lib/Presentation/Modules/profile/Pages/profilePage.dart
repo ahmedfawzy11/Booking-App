@@ -1,36 +1,59 @@
-import 'package:booking_app/modules/profile/page/change_pass_page.dart';
-import 'package:booking_app/modules/profile/widget/option_widget.dart';
+import 'package:booking_app/Presentation/Modules/profile/Pages/changePassPage.dart';
+import 'package:booking_app/Presentation/Modules/profile/Pages/editProfilePage.dart';
+import 'package:booking_app/Presentation/Modules/profile/Widgets/optionWidget.dart';
+import 'package:booking_app/Presentation/Modules/profile/Widgets/profileWidget.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatefulWidget {
   final AnimationController animationController;
 
-  const ProfilePage({Key? key, required this.animationController,})
-      : super(key: key,);
+  const ProfilePage({
+    Key? key,
+    required this.animationController,
+  }) : super(
+          key: key,
+        );
   @override
   State<ProfilePage> createState() => _ProfilePageState();
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  Widget build(BuildContext context,) {
+  @override
+  Widget build(
+    BuildContext context,
+  ) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white,),
-          onPressed: () => Navigator.of(context,).pop(),
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ),
+          onPressed: () => Navigator.of(
+            context,
+          ).pop(),
         ),
         centerTitle: true,
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0,),
+        padding: const EdgeInsets.symmetric(
+          horizontal: 16.0,
+        ),
         child: Column(
           children: [
             InkWell(
               onTap: () {
-                Navigator.of(context,).push(
-                  MaterialPageRoute(builder: (context,) => EditProfilePage(),),
+                Navigator.of(
+                  context,
+                ).push(
+                  MaterialPageRoute(
+                    builder: (
+                      context,
+                    ) =>
+                        const EditProfilePage(),
+                  ),
                 );
               },
               child: Row(
@@ -42,12 +65,19 @@ class _ProfilePageState extends State<ProfilePage> {
                       Text(
                         'Sarah Ahmed',
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 26,),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 26,
+                        ),
                       ),
-                      SizedBox(height: 8,),
+                      SizedBox(
+                        height: 8,
+                      ),
                       Text(
                         'view and Edit profile',
-                        style: TextStyle(color: Colors.grey, fontSize: 18,),
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 18,
+                        ),
                       ),
                     ],
                   ),
@@ -64,38 +94,87 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             OptionWidget(
               text: 'Change Password',
-              icon: const Icon(Icons.lock, color: Colors.grey,),
+              icon: const Icon(
+                Icons.lock,
+                color: Colors.grey,
+              ),
               onClicked: () {
-                Navigator.of(context,).push(
-                  MaterialPageRoute(builder: (context,) => changePassword(),),
+                Navigator.of(
+                  context,
+                ).push(
+                  MaterialPageRoute(
+                    builder: (
+                      context,
+                    ) =>
+                        const ChangePassword(),
+                  ),
                 );
               },
             ),
-            Container(height: 1, color: Colors.grey.shade800,),
-           OptionWidget(
-                text: 'Invite Friends',
-                icon: const Icon(Icons.person_add_alt_1, color: Colors.grey,),
-                onClicked: (){},),
-            Container(height: 1, color: Colors.grey.shade800,),
-             OptionWidget(
-                text: 'Credit & Coupons',
-                icon: const Icon(Icons.card_giftcard, color: Colors.grey,),
-                onClicked: (){},),
-            Container(height: 1, color: Colors.grey.shade800,),
-             OptionWidget(
-                text: 'Help Center',
-                icon: const Icon(Icons.help_center, color: Colors.grey,),
-                onClicked: (){},),
-            Container(height: 1, color: Colors.grey.shade800,),
-             OptionWidget(
-                text: 'Payment', icon: Icon(Icons.payment, color: Colors.grey,),
-                onClicked: (){},),
-            Container(height: 1, color: Colors.grey.shade800,),
-             OptionWidget(
-                text: 'Setting',
-                icon: const Icon(Icons.settings, color: Colors.grey,),
-                onClicked: (){},),
-            Container(height: 1, color: Colors.grey.shade800,),
+            Container(
+              height: 1,
+              color: Colors.grey.shade800,
+            ),
+            OptionWidget(
+              text: 'Invite Friends',
+              icon: const Icon(
+                Icons.person_add_alt_1,
+                color: Colors.grey,
+              ),
+              onClicked: () {},
+            ),
+            Container(
+              height: 1,
+              color: Colors.grey.shade800,
+            ),
+            OptionWidget(
+              text: 'Credit & Coupons',
+              icon: const Icon(
+                Icons.card_giftcard,
+                color: Colors.grey,
+              ),
+              onClicked: () {},
+            ),
+            Container(
+              height: 1,
+              color: Colors.grey.shade800,
+            ),
+            OptionWidget(
+              text: 'Help Center',
+              icon: const Icon(
+                Icons.help_center,
+                color: Colors.grey,
+              ),
+              onClicked: () {},
+            ),
+            Container(
+              height: 1,
+              color: Colors.grey.shade800,
+            ),
+            OptionWidget(
+              text: 'Payment',
+              icon: const Icon(
+                Icons.payment,
+                color: Colors.grey,
+              ),
+              onClicked: () {},
+            ),
+            Container(
+              height: 1,
+              color: Colors.grey.shade800,
+            ),
+            OptionWidget(
+              text: 'Setting',
+              icon: const Icon(
+                Icons.settings,
+                color: Colors.grey,
+              ),
+              onClicked: () {},
+            ),
+            Container(
+              height: 1,
+              color: Colors.grey.shade800,
+            ),
           ],
         ),
       ),

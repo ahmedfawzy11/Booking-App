@@ -1,37 +1,47 @@
+import 'package:booking_app/Application/Utils/helper.dart';
+import 'package:booking_app/Application/Utils/textStyles.dart';
+import 'package:booking_app/Application/Utils/themes.dart';
+import 'package:booking_app/Application/Widgets/commonCard.dart';
+import 'package:booking_app/Application/Widgets/listCellAnimationView.dart';
+import 'package:booking_app/Data/Models/hotelListData.dart';
 import 'package:flutter/material.dart';
-import 'package:booking_app/models/hotel_list_data.dart';
-import 'package:booking_app/utils/helper.dart';
-import 'package:booking_app/utils/text_styles.dart';
-import 'package:booking_app/utils/themes.dart';
-import 'package:booking_app/widgets/common_card.dart';
-import 'package:booking_app/widgets/list_cell_animation_view.dart';
 
 class SearchView extends StatelessWidget {
   final HotelListData hotelInfo;
   final AnimationController animationController;
   final Animation<double> animation;
 
-  const SearchView(
-      {Key? key,
-      required this.hotelInfo,
-      required this.animationController,
-      required this.animation,})
-      : super(key: key,);
+  const SearchView({
+    Key? key,
+    required this.hotelInfo,
+    required this.animationController,
+    required this.animation,
+  }) : super(
+          key: key,
+        );
 
   @override
-  Widget build(BuildContext context,) {
+  Widget build(
+    BuildContext context,
+  ) {
     return ListCellAnimationView(
       animation: animation,
       animationController: animationController,
       child: Padding(
-        padding: const EdgeInsets.all(16.0,),
+        padding: const EdgeInsets.all(
+          16.0,
+        ),
         child: AspectRatio(
           aspectRatio: 0.75,
           child: CommonCard(
             color: AppTheme.backgroundColor,
             radius: 16,
             child: ClipRRect(
-              borderRadius: BorderRadius.all(Radius.circular(16.0,),),
+              borderRadius: const BorderRadius.all(
+                Radius.circular(
+                  16.0,
+                ),
+              ),
               child: Column(
                 children: <Widget>[
                   AspectRatio(
@@ -43,36 +53,48 @@ class SearchView extends StatelessWidget {
                   ),
                   Expanded(
                     child: Padding(
-                      padding: const EdgeInsets.all(8.0,),
+                      padding: const EdgeInsets.all(
+                        8.0,
+                      ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Text(
                             hotelInfo.titleTxt,
-                            style: TextStyles(context,).getBoldStyle(),
+                            style: TextStyles(
+                              context,
+                            ).getBoldStyle(),
                           ),
                           Text(
                             Helper.getRoomText(hotelInfo.roomData!),
-                            style:
-                                TextStyles(context,).getRegularStyle().copyWith(
-                                      fontWeight: FontWeight.w100,
-                                      fontSize: 12,
-                                      color: Theme.of(context,)
-                                          .disabledColor
-                                          .withOpacity(0.6,),
-                                    ),
+                            style: TextStyles(
+                              context,
+                            ).getRegularStyle().copyWith(
+                                  fontWeight: FontWeight.w100,
+                                  fontSize: 12,
+                                  color: Theme.of(
+                                    context,
+                                  ).disabledColor.withOpacity(
+                                        0.6,
+                                      ),
+                                ),
                           ),
                           Text(
-                            Helper.getLastSearchDate(hotelInfo.date!,),
-                            style:
-                                TextStyles(context,).getRegularStyle().copyWith(
-                                      fontWeight: FontWeight.w100,
-                                      fontSize: 12,
-                                      color: Theme.of(context,)
-                                          .disabledColor
-                                          .withOpacity(0.6,),
-                                    ),
+                            Helper.getLastSearchDate(
+                              hotelInfo.date!,
+                            ),
+                            style: TextStyles(
+                              context,
+                            ).getRegularStyle().copyWith(
+                                  fontWeight: FontWeight.w100,
+                                  fontSize: 12,
+                                  color: Theme.of(
+                                    context,
+                                  ).disabledColor.withOpacity(
+                                        0.6,
+                                      ),
+                                ),
                           ),
                         ],
                       ),

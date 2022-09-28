@@ -1,6 +1,6 @@
 // ignore_for_file: constant_identifier_names
 
-class Localfiles {
+class LocalFiles {
   static const String BaseImageUrl = 'assets/images/';
 
   static const String appIcon = '${BaseImageUrl}appIcon.png';

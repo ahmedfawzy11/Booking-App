@@ -1,29 +1,33 @@
 import 'package:flutter/material.dart';
 
-class passField extends StatefulWidget {
+class PassField extends StatefulWidget {
   final String label;
   final String text;
   final ValueChanged<String> onChanged;
 
-  const passField({
+  const PassField({
     Key? key,
     required this.label,
     required this.text,
     required this.onChanged,
-  }) : super(key: key,);
+  }) : super(
+          key: key,
+        );
 
   @override
-  State<passField> createState() => _passFieldState();
+  State<PassField> createState() => _PassFieldState();
 }
 
-class _passFieldState extends State<passField> {
+class _PassFieldState extends State<PassField> {
   late final TextEditingController controller;
 
   @override
   void initState() {
     super.initState();
 
-    controller = TextEditingController(text: widget.text,);
+    controller = TextEditingController(
+      text: widget.text,
+    );
   }
 
   @override
@@ -34,26 +38,37 @@ class _passFieldState extends State<passField> {
   }
 
   @override
-  Widget build(BuildContext context,) => Column(
+  Widget build(
+    BuildContext context,
+  ) =>
+      Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 10.0,),
+            padding: const EdgeInsets.only(
+              left: 10.0,
+            ),
             child: Text(
               widget.label,
-              style: TextStyle(color: Colors.grey, fontSize: 13,),
+              style: const TextStyle(
+                color: Colors.grey,
+                fontSize: 13,
+              ),
             ),
           ),
-          const SizedBox(height: 8,),
+          const SizedBox(
+            height: 8,
+          ),
           TextField(
             obscureText: true,
             decoration: InputDecoration(
               filled: true,
-              fillColor: Colors.grey.shade800, 
-
+              fillColor: Colors.grey.shade800,
               border: const OutlineInputBorder(
                 borderRadius: BorderRadius.all(
-                  Radius.circular(40.0,),
+                  Radius.circular(
+                    40.0,
+                  ),
                 ),
                 borderSide: BorderSide.none,
               ),

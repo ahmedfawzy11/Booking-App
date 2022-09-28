@@ -2,14 +2,14 @@ import 'package:booking_app/Application/Utils/textStyles.dart';
 import 'package:booking_app/Application/Utils/themes.dart';
 import 'package:flutter/material.dart';
 
-class CommonAppbarView extends StatelessWidget {
+class CommonAppBarView extends StatelessWidget {
   final double? topPadding;
   final Widget? backWidget;
   final String titleText;
   final VoidCallback? onBackClick;
   final IconData? iconData;
 
-  const CommonAppbarView({
+  const CommonAppBarView({
     Key? key,
     this.topPadding,
     this.onBackClick,

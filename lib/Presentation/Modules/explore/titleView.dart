@@ -1,6 +1,6 @@
+import 'package:booking_app/Application/Utils/textStyles.dart';
+import 'package:booking_app/Application/Utils/themes.dart';
 import 'package:flutter/material.dart';
-import 'package:booking_app/utils/text_styles.dart';
-import 'package:booking_app/utils/themes.dart';
 
 class TitleView extends StatelessWidget {
   final String titleTxt;
@@ -10,34 +10,49 @@ class TitleView extends StatelessWidget {
   final VoidCallback click;
   final bool isLeftButton;
 
-  const TitleView(
-      {Key? key,
-      this.titleTxt: "",
-      this.subTxt: "",
-      required this.animationController,
-      required this.animation,
-      required this.click,
-      this.isLeftButton: false,})
-      : super(key: key,);
+  const TitleView({
+    Key? key,
+    this.titleTxt = "",
+    this.subTxt = "",
+    required this.animationController,
+    required this.animation,
+    required this.click,
+    this.isLeftButton = false,
+  }) : super(
+          key: key,
+        );
 
   @override
-  Widget build(BuildContext context,) {
+  Widget build(
+    BuildContext context,
+  ) {
     return AnimatedBuilder(
       animation: animationController,
-      builder: (BuildContext context, Widget? child,) {
+      builder: (
+        BuildContext context,
+        Widget? child,
+      ) {
         return FadeTransition(
           opacity: animation,
-          child: new Transform(
-            transform: new Matrix4.translationValues(
-                0.0, 30 * (1.0 - animation.value), 0.0,),
+          child: Transform(
+            transform: Matrix4.translationValues(
+              0.0,
+              30 * (1.0 - animation.value),
+              0.0,
+            ),
             child: Padding(
-              padding: const EdgeInsets.only(left: 24, right: 24,),
+              padding: const EdgeInsets.only(
+                left: 24,
+                right: 24,
+              ),
               child: Row(
                 children: <Widget>[
                   Text(
                     titleTxt,
                     textAlign: TextAlign.left,
-                    style: TextStyles(context,).getBoldStyle().copyWith(
+                    style: TextStyles(
+                      context,
+                    ).getBoldStyle().copyWith(
                           fontSize: 18,
                         ),
                   ),
@@ -48,24 +63,29 @@ class TitleView extends StatelessWidget {
                       ? Material(
                           color: Colors.transparent,
                           child: InkWell(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(4.0,),),
+                            borderRadius: const BorderRadius.all(
+                              Radius.circular(4.0),
+                            ),
                             onTap: () {
                               return click();
                             },
                             child: Padding(
-                              padding: const EdgeInsets.only(left: 8, right: 8,),
+                              padding: const EdgeInsets.only(
+                                left: 8,
+                                right: 8,
+                              ),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
                                   Text(
                                     subTxt,
                                     textAlign: TextAlign.left,
-                                    style: TextStyles(context,)
-                                        .getBoldStyle()
-                                        .copyWith(
-                                            fontSize: 16,
-                                            color: AppTheme.primaryColor,),
+                                    style: TextStyles(
+                                      context,
+                                    ).getBoldStyle().copyWith(
+                                          fontSize: 16,
+                                          color: AppTheme.primaryColor,
+                                        ),
                                   ),
                                   SizedBox(
                                     height: 38,

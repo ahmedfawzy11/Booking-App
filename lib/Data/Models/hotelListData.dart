@@ -46,7 +46,7 @@ class HotelListData {
 
   static List<HotelListData> hotelList = [
     HotelListData(
-      imagePath: Localfiles.hotel_1,
+      imagePath: LocalFiles.hotel_1,
       titleTxt: 'Grand Royal Hotel',
       subTxt: 'Wembley, London',
       dist: 2.0,
@@ -68,7 +68,7 @@ class HotelListData {
       ),
     ),
     HotelListData(
-      imagePath: Localfiles.hotel_2,
+      imagePath: LocalFiles.hotel_2,
       titleTxt: 'Queen Hotel',
       subTxt: 'Wembley, London',
       dist: 4.0,
@@ -90,7 +90,7 @@ class HotelListData {
       ),
     ),
     HotelListData(
-      imagePath: Localfiles.hotel_3,
+      imagePath: LocalFiles.hotel_3,
       titleTxt: 'Grand Royal Hotel',
       subTxt: 'Wembley, London',
       dist: 3.0,
@@ -112,7 +112,7 @@ class HotelListData {
       ),
     ),
     HotelListData(
-      imagePath: Localfiles.hotel_4,
+      imagePath: LocalFiles.hotel_4,
       titleTxt: 'Queen Hotel',
       subTxt: 'Wembley, London',
       dist: 7.0,
@@ -134,7 +134,7 @@ class HotelListData {
       ),
     ),
     HotelListData(
-      imagePath: Localfiles.hotel_5,
+      imagePath: LocalFiles.hotel_5,
       titleTxt: 'Grand Royal Hotel',
       subTxt: 'Wembley, London',
       dist: 2.0,
@@ -159,34 +159,34 @@ class HotelListData {
 
   static List<HotelListData> popularList = [
     HotelListData(
-      imagePath: Localfiles.popular_1,
+      imagePath: LocalFiles.popular_1,
       titleTxt: 'Paris',
     ),
     HotelListData(
-      imagePath: Localfiles.popular_2,
+      imagePath: LocalFiles.popular_2,
       titleTxt: 'Spain',
     ),
     HotelListData(
-      imagePath: Localfiles.popular_3,
+      imagePath: LocalFiles.popular_3,
       titleTxt: 'Vernazza',
     ),
     HotelListData(
-      imagePath: Localfiles.popular_4,
+      imagePath: LocalFiles.popular_4,
       titleTxt: 'London',
     ),
     HotelListData(
-      imagePath: Localfiles.popular_5,
+      imagePath: LocalFiles.popular_5,
       titleTxt: 'Venice',
     ),
     HotelListData(
-      imagePath: Localfiles.popular_6,
+      imagePath: LocalFiles.popular_6,
       titleTxt: 'Diamond Head',
     ),
   ];
 
   static List<HotelListData> reviewsList = [
     HotelListData(
-      imagePath: Localfiles.avatar1,
+      imagePath: LocalFiles.avatar1,
       titleTxt: 'Alexia Jane',
       subTxt:
           'This is located in a great spot close to shops and bars, very quiet location',
@@ -194,7 +194,7 @@ class HotelListData {
       dateTxt: '21 May, 2019',
     ),
     HotelListData(
-      imagePath: Localfiles.avatar3,
+      imagePath: LocalFiles.avatar3,
       titleTxt: 'Jacky Depp',
       subTxt:
           'Good staff, very comfortable bed, very quiet location, place could do with an update',
@@ -202,7 +202,7 @@ class HotelListData {
       dateTxt: '21 May, 2019',
     ),
     HotelListData(
-      imagePath: Localfiles.avatar5,
+      imagePath: LocalFiles.avatar5,
       titleTxt: 'Alex Carl',
       subTxt:
           'This is located in a great spot close to shops and bars, very quiet location',
@@ -210,7 +210,7 @@ class HotelListData {
       dateTxt: '21 May, 2019',
     ),
     HotelListData(
-      imagePath: Localfiles.avatar2,
+      imagePath: LocalFiles.avatar2,
       titleTxt: 'May June',
       subTxt:
           'Good staff, very comfortable bed, very quiet location, place could do with an update',
@@ -218,7 +218,7 @@ class HotelListData {
       dateTxt: '21 May, 2019',
     ),
     HotelListData(
-      imagePath: Localfiles.avatar4,
+      imagePath: LocalFiles.avatar4,
       titleTxt: 'Lesley Rivas',
       subTxt:
           'This is located in a great spot close to shops and bars, very quiet location',
@@ -226,7 +226,7 @@ class HotelListData {
       dateTxt: '21 May, 2019',
     ),
     HotelListData(
-      imagePath: Localfiles.avatar6,
+      imagePath: LocalFiles.avatar6,
       titleTxt: 'Carlos Lasmar',
       subTxt:
           'Good staff, very comfortable bed, very quiet location, place could do with an update',
@@ -234,7 +234,7 @@ class HotelListData {
       dateTxt: '21 May, 2019',
     ),
     HotelListData(
-      imagePath: Localfiles.avatar7,
+      imagePath: LocalFiles.avatar7,
       titleTxt: 'Oliver Smith',
       subTxt:
           'This is located in a great spot close to shops and bars, very quiet location',
@@ -303,54 +303,54 @@ class HotelListData {
 
   static List<HotelListData> hotelTypeList = [
     HotelListData(
-      imagePath: Localfiles.hotel_Type_1,
+      imagePath: LocalFiles.hotel_Type_1,
       titleTxt: 'hotel_data',
       isSelected: false,
     ),
     HotelListData(
-      imagePath: Localfiles.hotel_Type_2,
+      imagePath: LocalFiles.hotel_Type_2,
       titleTxt: 'Backpacker_data',
       isSelected: false,
     ),
     HotelListData(
-      imagePath: Localfiles.hotel_Type_3,
+      imagePath: LocalFiles.hotel_Type_3,
       titleTxt: 'Resort_data',
       isSelected: false,
     ),
     HotelListData(
-      imagePath: Localfiles.hotel_Type_4,
+      imagePath: LocalFiles.hotel_Type_4,
       titleTxt: 'villa_data',
       isSelected: false,
     ),
     HotelListData(
-      imagePath: Localfiles.hotel_Type_5,
+      imagePath: LocalFiles.hotel_Type_5,
       titleTxt: 'apartment',
       isSelected: false,
     ),
     HotelListData(
-      imagePath: Localfiles.hotel_Type_6,
+      imagePath: LocalFiles.hotel_Type_6,
       titleTxt: 'guest_house',
       isSelected: false,
     ),
     HotelListData(
-      imagePath: Localfiles.hotel_Type_7,
+      imagePath: LocalFiles.hotel_Type_7,
       titleTxt: 'motel',
       isSelected: false,
     ),
     HotelListData(
-      imagePath: Localfiles.hotel_Type_8,
+      imagePath: LocalFiles.hotel_Type_8,
       titleTxt: 'accommodation',
       isSelected: false,
     ),
     HotelListData(
-      imagePath: Localfiles.hotel_Type_9,
+      imagePath: LocalFiles.hotel_Type_9,
       titleTxt: 'Bed_breakfast',
       isSelected: false,
     ),
   ];
   static List<HotelListData> lastsSearchesList = [
     HotelListData(
-      imagePath: Localfiles.popular_4,
+      imagePath: LocalFiles.popular_4,
       titleTxt: 'London',
       roomData: RoomData(
         1,
@@ -363,7 +363,7 @@ class HotelListData {
       dateTxt: '12 - 22 Dec',
     ),
     HotelListData(
-      imagePath: Localfiles.popular_1,
+      imagePath: LocalFiles.popular_1,
       titleTxt: 'Paris',
       roomData: RoomData(
         1,
@@ -376,7 +376,7 @@ class HotelListData {
       dateTxt: '12 - 24 Sep',
     ),
     HotelListData(
-      imagePath: Localfiles.city_3,
+      imagePath: LocalFiles.city_3,
       titleTxt: 'New York',
       roomData: RoomData(
         1,
@@ -389,7 +389,7 @@ class HotelListData {
       dateTxt: '20 - 22 Sep',
     ),
     HotelListData(
-      imagePath: Localfiles.city_4,
+      imagePath: LocalFiles.city_4,
       titleTxt: 'Tokyo',
       roomData: RoomData(
         12,
@@ -402,7 +402,7 @@ class HotelListData {
       dateTxt: '12 - 22 Nov',
     ),
     HotelListData(
-      imagePath: Localfiles.city_5,
+      imagePath: LocalFiles.city_5,
       titleTxt: 'Shanghai',
       roomData: RoomData(
         10,
@@ -415,7 +415,7 @@ class HotelListData {
       dateTxt: '10 - 15 Dec',
     ),
     HotelListData(
-      imagePath: Localfiles.city_6,
+      imagePath: LocalFiles.city_6,
       titleTxt: 'Moscow',
       roomData: RoomData(
         12,

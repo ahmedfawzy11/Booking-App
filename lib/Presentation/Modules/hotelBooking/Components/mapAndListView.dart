@@ -1,23 +1,32 @@
+import 'package:booking_app/Data/Models/hotelListData.dart';
+import 'package:booking_app/Presentation/Modules/hotelBooking/Components/googleMapUIView.dart';
+import 'package:booking_app/Presentation/Modules/hotelBooking/Components/timeDateView.dart';
+import 'package:booking_app/Presentation/Modules/hotelBooking/mapHotelView.dart';
+import 'package:booking_app/Presentation/Routes/routeNames.dart';
 import 'package:flutter/material.dart';
-import 'package:booking_app/models/hotel_list_data.dart';
-import 'package:booking_app/modules/hotel_booking/components/google_map_ui_view.dart';
-import 'package:booking_app/modules/hotel_booking/components/time_date_view.dart';
-import 'package:booking_app/modules/hotel_booking/map_hotel_view.dart';
-import 'package:booking_app/routes/route_names.dart';
 
 class MapAndListView extends StatelessWidget {
   final List<HotelListData> hotelList;
   final Widget searchBarUI;
 
-  const MapAndListView(
-      {Key? key, required this.hotelList, required this.searchBarUI,})
-      : super(key: key,);
+  const MapAndListView({
+    Key? key,
+    required this.hotelList,
+    required this.searchBarUI,
+  }) : super(
+          key: key,
+        );
 
   @override
-  Widget build(BuildContext context,) {
+  Widget build(
+    BuildContext context,
+  ) {
     return Expanded(
       child: StatefulBuilder(
-        builder: (context, state,) {
+        builder: (
+          context,
+          state,
+        ) {
           return Column(
             children: <Widget>[
               searchBarUI,
@@ -36,13 +45,19 @@ class MapAndListView extends StatelessWidget {
                             colors: [
                               Theme.of(context)
                                   .scaffoldBackgroundColor
-                                  .withOpacity(1.0,),
+                                  .withOpacity(
+                                    1.0,
+                                  ),
                               Theme.of(context)
                                   .scaffoldBackgroundColor
-                                  .withOpacity(0.4,),
+                                  .withOpacity(
+                                    0.4,
+                                  ),
                               Theme.of(context)
                                   .scaffoldBackgroundColor
-                                  .withOpacity(0.0,),
+                                  .withOpacity(
+                                    0.0,
+                                  ),
                             ],
                             begin: Alignment.topCenter,
                             end: Alignment.bottomCenter,
@@ -58,15 +73,23 @@ class MapAndListView extends StatelessWidget {
                         height: 156,
                         child: ListView.builder(
                           itemCount: hotelList.length,
-                          padding:
-                              EdgeInsets.only(top: 8, bottom: 8, right: 16,),
+                          padding: EdgeInsets.only(
+                            top: 8,
+                            bottom: 8,
+                            right: 16,
+                          ),
                           scrollDirection: Axis.horizontal,
-                          itemBuilder: (context, index,) {
+                          itemBuilder: (
+                            context,
+                            index,
+                          ) {
                             return MapHotelListView(
                               callback: () {
-                                NavigationServices(context,)
-                                    .gotoRoomBookingScreen(
-                                        hotelList[index].titleTxt,);
+                                NavigationServices(
+                                  context,
+                                ).gotoRoomBookingScreen(
+                                  hotelList[index].titleTxt,
+                                );
                               },
                               hotelData: hotelList[index],
                             );

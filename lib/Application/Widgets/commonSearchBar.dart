@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class CommonSearchBar extends StatelessWidget {
   final String? text;
   final TextEditingController? textEditingController;
-  final bool enabled, ishsow;
+  final bool enabled, isShow;
   final double height;
   final IconData? iconData;
 
@@ -15,7 +15,7 @@ class CommonSearchBar extends StatelessWidget {
     this.enabled = false,
     this.height = 48,
     this.iconData,
-    this.ishsow = true,
+    this.isShow = true,
     this.textEditingController,
   }) : super(
           key: key,
@@ -34,7 +34,7 @@ class CommonSearchBar extends StatelessWidget {
         child: Center(
           child: Row(
             children: <Widget>[
-              ishsow == true
+              isShow == true
                   ? Icon(
                       iconData,
                       size: 18,
@@ -43,7 +43,7 @@ class CommonSearchBar extends StatelessWidget {
                       ).primaryColor,
                     )
                   : SizedBox(),
-              ishsow == true
+              isShow == true
                   ? SizedBox(
                       width: 8,
                     )

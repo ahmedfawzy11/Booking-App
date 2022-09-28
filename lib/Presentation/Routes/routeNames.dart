@@ -1,14 +1,14 @@
 // ignore_for_file: file_names
 
-import 'package:booking_app/Modules/bottomTab/bottomTabScreen.dart';
-import 'package:booking_app/Modules/hotelBooking/filterScreen/filtersScreen.dart';
-import 'package:booking_app/Modules/hotelBooking/hotelHomeScreen.dart';
-import 'package:booking_app/Modules/hotelDetails/roomBookingScreen.dart';
-import 'package:booking_app/Modules/hotelDetails/searchScreen.dart';
-import 'package:booking_app/Modules/login/forgotPassword.dart';
-import 'package:booking_app/Modules/login/loginScreen.dart';
-import 'package:booking_app/Modules/login/signUpScreen.dart';
-import 'package:booking_app/routes/routes.dart';
+import 'package:booking_app/Presentation/Modules/bottomTab/bottomTabScreen.dart';
+import 'package:booking_app/Presentation/Modules/hotelBooking/filterScreen/filtersScreen.dart';
+import 'package:booking_app/Presentation/Modules/hotelBooking/hotelHomeScreen.dart';
+import 'package:booking_app/Presentation/Modules/hotelDetails/roomBookingScreen.dart';
+import 'package:booking_app/Presentation/Modules/hotelDetails/searchScreen.dart';
+import 'package:booking_app/Presentation/Modules/login/forgotPassword.dart';
+import 'package:booking_app/Presentation/Modules/login/loginScreen.dart';
+import 'package:booking_app/Presentation/Modules/login/signUpScreen.dart';
+import 'package:booking_app/Presentation/Routes/routes.dart';
 import 'package:flutter/material.dart';
 
 class NavigationServices {
@@ -99,11 +99,11 @@ class NavigationServices {
   }
 
   Future<dynamic> gotoRoomBookingScreen(
-    String hotelname,
+    String hotelName,
   ) async {
     return await _pushMaterialPageRoute(
       RoomBookingScreen(
-        hotelName: hotelname,
+        hotelName: hotelName,
       ),
     );
   }

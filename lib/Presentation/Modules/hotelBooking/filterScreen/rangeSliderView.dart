@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 
 class RangeSliderView extends StatefulWidget {
-  final Function(RangeValues,) onChangeRangeValues;
+  final Function(
+    RangeValues,
+  ) onChangeRangeValues;
   final RangeValues values;
 
-  const RangeSliderView(
-      {Key? key, required this.values, required this.onChnageRangeValues,})
-      : super(key: key,);
+  const RangeSliderView({
+    Key? key,
+    required this.values,
+    required this.onChangeRangeValues,
+  }) : super(
+          key: key,
+        );
   @override
   _RangeSliderViewState createState() => _RangeSliderViewState();
 }
@@ -21,7 +27,9 @@ class _RangeSliderViewState extends State<RangeSliderView> {
   }
 
   @override
-  Widget build(BuildContext context,) {
+  Widget build(
+    BuildContext context,
+  ) {
     return Container(
       child: Column(
         children: <Widget>[
@@ -68,22 +76,29 @@ class _RangeSliderViewState extends State<RangeSliderView> {
             ],
           ),
           SliderTheme(
-            data: SliderThemeData(
-                ),
+            data: SliderThemeData(),
             child: RangeSlider(
               values: _values,
               min: 10.0,
               max: 1000.0,
-              activeColor: Theme.of(context,).primaryColor,
-              inactiveColor: Colors.grey.withOpacity(0.4,),
+              activeColor: Theme.of(
+                context,
+              ).primaryColor,
+              inactiveColor: Colors.grey.withOpacity(
+                0.4,
+              ),
               divisions: 1000,
-              onChanged: (RangeValues values,) {
+              onChanged: (
+                RangeValues values,
+              ) {
                 try {
                   setState(() {
                     _values = values;
                   });
-                  widget.onChnageRangeValues(_values,);
-                } catch (e,) {}
+                  widget.onChangeRangeValues(
+                    _values,
+                  );
+                } catch (e) {}
               },
             ),
           ),
