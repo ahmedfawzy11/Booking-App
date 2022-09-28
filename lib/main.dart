@@ -1,14 +1,10 @@
-import 'package:booking_app/Core/DI/injection.dart';
-import 'package:booking_app/features/inviteScreen/presentation/page/invitePage.dart';
 import 'package:booking_app/features/settingScreen/presentation/page/settingPage.dart';
 import 'package:flutter/material.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-
-  init();
-
-  runApp(const MyApp());
+void main() {
+  runApp(
+    const MyApp(),
+  );
 }
 
 class MyApp extends StatelessWidget {
