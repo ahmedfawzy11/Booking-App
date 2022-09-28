@@ -1,4 +1,6 @@
+import 'package:booking_app/Domain/API/Network/dioHelper.dart';
 import 'package:booking_app/Domain/API/Network/endPoints.dart';
+import 'package:booking_app/Domain/Error/exceptions.dart';
 import 'package:booking_app/Domain/Models/changePasswordModel.dart';
 import 'package:booking_app/Domain/Models/loginModel.dart';
 import 'package:booking_app/Domain/Models/profileModel.dart';
@@ -60,7 +62,9 @@ class RepositoryImplementation extends Repository {
           },
         );
 
-        return LoginModel.fromJson(response,);
+        return LoginModel.fromJson(
+          response,
+        );
       },
       onPrimaryServerException: (e) async {
         return e;
@@ -87,7 +91,9 @@ class RepositoryImplementation extends Repository {
           },
         );
 
-        return RegisterModel.fromJson(response,);
+        return RegisterModel.fromJson(
+          response,
+        );
       },
       onPrimaryServerException: ((e) async {
         return e;
@@ -106,7 +112,9 @@ class RepositoryImplementation extends Repository {
           token: token,
         );
 
-        return ProfileModel.fromJson(response,);
+        return ProfileModel.fromJson(
+          response,
+        );
       },
       onPrimaryServerException: (e) async {
         return e;
@@ -131,7 +139,9 @@ class RepositoryImplementation extends Repository {
           },
         );
 
-        return UpdateModel.fromJson(response,);
+        return UpdateModel.fromJson(
+          response,
+        );
       },
       onPrimaryServerException: (e) async {
         return e;
@@ -158,7 +168,9 @@ class RepositoryImplementation extends Repository {
           },
         );
 
-        return ChangePasswordModel.fromJson(response,);
+        return ChangePasswordModel.fromJson(
+          response,
+        );
       },
       onPrimaryServerException: (e) async {
         return e;
@@ -170,15 +182,21 @@ class RepositoryImplementation extends Repository {
 extension on Repository {
   Future<Either<PrimaryServerException, T>> basicErrorHandling<T>({
     required Future<T> Function() onSuccess,
-    Future<PrimaryServerException> Function(PrimaryServerException exception,)?
+    Future<PrimaryServerException> Function(
+      PrimaryServerException exception,
+    )?
         onPrimaryServerException,
   }) async {
     try {
       final r = await onSuccess();
       return Right(r);
-    } on PrimaryServerException catch (e, s,) {
-      debugPrint(s.toString(),);
-      return Left(e,);
+    } on PrimaryServerException catch (e, s) {
+      debugPrint(
+        s.toString(),
+      );
+      return Left(
+        e,
+      );
     }
   }
 }
