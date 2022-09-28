@@ -43,4 +43,4 @@ flutter:
   assets:
     - assets/images/
     - assets/json/
-    - lib/Language/lang/language_text.json
+    - lib/Data/Language/lang/languageText.json
