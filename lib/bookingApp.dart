@@ -17,6 +17,8 @@ import 'package:provider/provider.dart';
 BuildContext? applicationcontext;
 
 class BookingApp extends StatefulWidget {
+  const BookingApp({super.key});
+
   @override
   _BookingAppState createState() => _BookingAppState();
 }
@@ -91,7 +93,7 @@ class _BookingAppState extends State<BookingApp> {
                               ? 0.9
                               : 0.8,
                     ),
-                    child: child ?? SizedBox(),
+                    child: child ?? const SizedBox(),
                   );
                 },
               ),
@@ -147,7 +149,7 @@ class _BookingAppState extends State<BookingApp> {
       RoutesName.IntroductionScreen: (
         BuildContext context,
       ) =>
-          IntroductionScreen(),
+          const IntroductionScreen(),
     };
   }
 }

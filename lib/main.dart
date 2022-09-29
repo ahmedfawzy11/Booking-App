@@ -1,26 +1,26 @@
+import 'package:booking_app/Application/Providers/themeProvider.dart';
+import 'package:booking_app/Application/Utils/themes.dart';
+import 'package:booking_app/bookingApp.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 
-void main() {
-  runApp(
-    const MyApp(),
-  );
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SystemChrome.setPreferredOrientations(
+          [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown])
+      .then((_) => runApp(_setAllProviders()));
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({
-    super.key,
-  });
-
-  @override
-  Widget build(
-    BuildContext context,
-  ) {
-    return MaterialApp(
-      title: 'Booking App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+Widget _setAllProviders() {
+  return MultiProvider(
+    providers: [
+      ChangeNotifierProvider(
+        create: (_) => ThemeProvider(
+          state: AppTheme.getThemeData,
+        ),
       ),
-      debugShowCheckedModeBanner: false,
-    );
-  }
+    ],
+    child: const BookingApp(),
+  );
 }
