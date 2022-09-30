@@ -9,15 +9,15 @@ import 'package:provider/provider.dart';
 
 class AppTheme {
   static bool get isLightMode {
-    return applicationcontext == null
+    return applicationContext == null
         ? true
-        : applicationcontext!.read<ThemeProvider>().isLightMode;
+        : applicationContext!.read<ThemeProvider>().isLightMode;
   }
 
   static Color get primaryColor {
-    ColorType colortypedata = applicationcontext == null
+    ColorType colortypedata = applicationContext == null
         ? ColorType.Verdigris
-        : applicationcontext!.read<ThemeProvider>().colorType;
+        : applicationContext!.read<ThemeProvider>().colorType;
 
     return getColor(
       colortypedata,
@@ -85,9 +85,9 @@ class AppTheme {
   static TextTheme _buildTextTheme(
     TextTheme base,
   ) {
-    FontFamilyType fontType = applicationcontext == null
+    FontFamilyType fontType = applicationContext == null
         ? FontFamilyType.WorkSans
-        : applicationcontext!.read<ThemeProvider>().fontType;
+        : applicationContext!.read<ThemeProvider>().fontType;
     return base.copyWith(
       headline1: getTextStyle(
         fontType,
@@ -338,7 +338,7 @@ class AppTheme {
         boxShadow: <BoxShadow>[
           BoxShadow(
             color: Theme.of(
-              applicationcontext!,
+              applicationContext!,
             ).dividerColor,
             offset: const Offset(
               4,
@@ -358,7 +358,7 @@ class AppTheme {
         boxShadow: <BoxShadow>[
           BoxShadow(
             color: Theme.of(
-              applicationcontext!,
+              applicationContext!,
             ).dividerColor,
             blurRadius: 8,
             offset: const Offset(
@@ -378,7 +378,7 @@ class AppTheme {
         boxShadow: <BoxShadow>[
           BoxShadow(
             color: Theme.of(
-              applicationcontext!,
+              applicationContext!,
             ).dividerColor,
             blurRadius: 8,
           ),
@@ -395,7 +395,7 @@ class AppTheme {
         boxShadow: <BoxShadow>[
           BoxShadow(
             color: Theme.of(
-              applicationcontext!,
+              applicationContext!,
             ).dividerColor,
             blurRadius: 8,
           ),
