@@ -10,12 +10,13 @@ Flutter Using:
     - Http Client for Dart (Dio)
     - Google Maps
     - Get Current Location (Geolocator)
-    - Shared Prefrencews
+    - Shared Preferences
     - REST APIs using Postman
     - localization (EN/AR)
     - Design Pattern (MVVM)
     - Dependency Injection
     - JSON Files
+    - Light/Dark Mode
 -----------------------------------------------------------------------------------------------------------------------------
  App Icon:
 ------------------
@@ -51,6 +52,6 @@ App Screenshots:
 App Screen Record:
 ------------------
 
-  https://user-images.githubusercontent.com/30273995/192325727-3db347d9-270e-4dea-83c9-0cc06799b27e.mp4
-  
+ https://user-images.githubusercontent.com/30273995/193423834-4d94dfb4-8e63-4d94-b63f-ba2f91fad770.mp4
+
 -----------------------------------------------------------------------------------------------------------------------------
